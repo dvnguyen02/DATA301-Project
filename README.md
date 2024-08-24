@@ -29,7 +29,7 @@ Store all scripts used for data processing, cleaning, and analysis here.
 
 This folder is for project documentation.
 
-- `data_dictionary.md`: Definitions of all variables in our datasets.
+- `data_desc.txt`: Definitions and classes of all variables in our datasets.
 
 ### /EDA
 
