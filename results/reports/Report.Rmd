@@ -3,7 +3,7 @@ title: "Kidney Stone Disease"
 author: "Group 2"
 date: "`r Sys.Date()`"
 output: 
-  pdf_document:
+  pdf_document: 
     toc: true
     toc_depth: 2
 ---
@@ -87,6 +87,16 @@ knitr::include_graphics("../figures/cond_ks_prop.png")
 ```
 
 [Explain the variables, comment on the main features, and interpret the results.]
+
+## Correlation and Percentage Difference Analysis
+
+To explore the relationship between dietary factors and kidney stones, we conducted a correlation analysis and calculated the percentage difference of these factors between individuals with and without kidney stones. The following graph shows the results of this analysis:
+
+```{r correlation-percentage-diff-plot, fig.width=12, fig.height=8}
+knitr::include_graphics("../figures/combined_dietary_correlation_and_difference.png")
+```
+
+[Here, provide an interpretation of the graph. Explain what the correlation matrix shows, what the percentage differences indicate, and discuss any notable patterns or findings from this analysis. You may want to highlight the most strongly correlated dietary factors with kidney stones and the largest percentage differences between those with and without kidney stones.]
 
 ## Analysis 2: [Title]
 
