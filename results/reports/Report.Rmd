@@ -1,5 +1,5 @@
 ---
-title: "Kidney Stone Diseases"
+title: "Kidney Stone Disease"
 author: "Group 2"
 date: "`r Sys.Date()`"
 output: 
@@ -12,23 +12,46 @@ output:
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 # Load required libraries here
 # library(tidyverse)
-# library(knitr)
-# library(kableExtra)
+library(knitr)
+library(kableExtra)
 ```
+
+\newpage
 
 # Background and Data
 
-## Dataset Description
+## Dataset
 
-[Describe your dataset(s) here, including their source and why they are of interest.]
+This project is based on the [National Health and Nutrition Examination Survey](https://www.cdc.gov/nchs/nhanes/index.htm) (NHANES) from the [National Center for Health Statistics](https://www.cdc.gov/nchs/index.htm), of the [Centers for Disease Control and Prevention](https://www.cdc.gov/). Data from the most recent cycle is used, [NHANES 2017 - March 2020](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2017-2020).
+
+NHANES is an ongoing program of surveys in the United States that assesses the health and nutritional status of adults and children. The surveys collect health-related data ranging over a number of topics, which are organised broadly into Demographics, Dietary, Examination, Laboratory, and Questionnaire. *explain why dataset is of interest + what questions it could be used to answer + what question we chose to answer*
 
 ## Data Structure and Types
+```{r}
+df <- read.csv("../../data/merged_data_clean.csv")
+```
 
-[Explain the types of data and structure of your dataset(s).]
+Data from each NHANES cycle is released as many tables, each containing a collection of similar features. For the specific focus on kidney stone disease, only a subset of tables was used, and from these tables, only a subset of key features. The integrated dataset used in this project is composed of `r nrow(df)` instances/rows, and `r ncol(df)` columns. The column `SEQN` contains a unique identifier for each instance, and the column `KIQ026` contains the target variable. Thus, there are `r ncol(df) - 2` informative features. 
+
+The key features are broadly described in the following:
+
+* Demographic: gender, age, race, education, marital status, and income. Men and older individuals are more likely to have had kidney stones *citation*, and there is evidence that kidney stone prevalence and severity is associated with various socioeconomic factors *citation*. 
+* Dietary: vitamin, water, nutrient, and dietary supplement intake. Kidney stone incidence increases with certain dietary habits, such as low calcium, low potassium, and low fluid diets *citation*. Everyday foods in the NHANES dietary interviews are deconstructed and aggregated into their nutritional components, thus there is highly specific (and largely correlated) dietary and nutrient data that constitutes a significant portion of the total features explored.
+* Examination: body mass index (BMI), blood pressure, and pulse readings. Indicators of general health are useful predictive features for kidney stone risk *citation*.
+* Laboratory: aspects of biochemistry profile, and urine-associated tests. Detection of kidney diseases or urinary tract abnormalities (that can lead to kidney stones) are often tested by assessing levels of components such as glucose *citation*, lead *citation*, and the albumin creatinine ratio *citation* in urine.
+* Questionnaire: past medical history (conditions and medicines), dietary and alcohol habits, urinary tract function, physical activity, smoking, and sleep habits. Again, general health, behaviours, and lifestyle have a large influence on kidney stone disease. Factors such as lack of physical activity and smoking can indirectly damage the urinary tract and promote stone formation *citation*.
+
+Feature type ranges from numerical continuous to catgeorical ordinal, nominal, and binary. Dietary, examination, and laboratory data are mainly numerical, while demographic and questionnaire data are mainly categorical. To avoid difficult or complicated natural languange processing or text mining, free-text data was not selected.
 
 ## Data Completeness
 
-[Discuss the completeness of your dataset(s), including missing data and potential errors.]
+```{r}
+na_df <- read.csv("../figures/na_prop.csv")
+```
+
+```{r}
+knitr::include_graphics("../figures/na_prop.png")
+```
 
 ## Data Integration (if applicable)
 
@@ -55,11 +78,12 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 # data <- read.csv("your_data.csv")
 ```
 
-## Analysis 1: [Title]
+```{r}
+knitr::include_graphics("../figures/demo_ks_prev.png")
+```
 
-```{r analysis-1}
-# Your R code for the first analysis
-# plot or table
+```{r}
+knitr::include_graphics("../figures/cond_ks_prop.png")
 ```
 
 [Explain the variables, comment on the main features, and interpret the results.]

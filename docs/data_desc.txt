@@ -32,6 +32,27 @@ Code or Value      Value Description
 
 ---------------------------------------
 
+RIDRETH3 - Race/Hispanic origin w/ NH Asian
+-------------------------------------------
+Variable Name:     RIDRETH3
+SAS Label:         Race/Hispanic origin w/ NH Asian
+English Text:      Recode of reported race and Hispanic origin information, with Non-Hispanic Asian Category.
+Target:            Both males and females (0 YEARS - 150 YEARS)
+
+Categorical nominal
+
+Code or Value      Value Description                   
+---------------------------------------------------------------------------------
+1                  Mexican American                                 
+2                  Other Hispanic                                   
+3                  Non-Hispanic White                               
+4                  Non-Hispanic Black                               
+6                  Non-Hispanic Asian                               
+7                  Other Race - Including Multi-Racial              
+.                  Missing                                          
+
+-------------------------------------------
+
 DMDEDUC2 - Education level - Adults 20+
 ---------------------------------------
 Variable Name:     DMDEDUC2
@@ -108,7 +129,7 @@ Code or Value      Value Description
 2                  Lite salt                
 3                  Salt substitute          
 4                  Doesn't use or add salt products at the table
-91                 Other                    
+9                 Other                    
 99                 Don't Know               
 .                  Missing                  
 
@@ -1898,7 +1919,7 @@ SAS Label:         Ever had kidney stones?
 English Text:      {Have you/Has SP} ever had kidney stones?
 Target:            Both males and females (20 YEARS - 150 YEARS)
 
-LABEL: binary
+Categorical nominal/binary: LABEL
 
 Code or Value      Value Description        
 ---------------------------------------------------------------------------------
@@ -2031,6 +2052,198 @@ Code or Value      Value Description
 .                  Missing                 
 
 ---------------------------------------
+
+MCQ080 - Doctor ever said you were overweight
+---------------------------------------------
+Variable Name:     MCQ080
+SAS Label:         Doctor ever said you were overweight
+English Text:      Has a doctor or other health professional ever told {you/SP} that {you were/s/he/SP was} overweight?
+Target:            Both males and females (16 YEARS - 150 YEARS)
+
+Categorical nominal/binary
+
+Code or Value      Value Description                   
+---------------------------------------------------------------------------------
+1                  Yes                                 
+2                  No                                  
+7                  Refused                             
+9                  Don't know                         
+.                  Missing                            
+
+---------------------------------------------
+
+MCQ160M - Ever told you had thyroid problem
+-------------------------------------------
+Variable Name:     MCQ160m
+SAS Label:         Ever told you had thyroid problem
+English Text:      Has a doctor or other health professional ever told {you/SP} that {you/s/he} . . .had another thyroid (thigh-roid) problem?
+Target:            Both males and females (20 YEARS - 150 YEARS)
+
+Categorical nominal/binary
+
+Code or Value      Value Description                   
+---------------------------------------------------------------------------------
+1                  Yes                                 
+2                  No                                  
+7                  Refused                             
+9                  Don't know                         
+.                  Missing                            
+
+-------------------------------------------
+MCQ520 - Abdominal pain during past 12 months?
+----------------------------------------------
+Variable Name:     MCQ520
+SAS Label:         Abdominal pain during past 12 months?
+English Text:      During the past 12 months {have you/has s/he} had pain in the abdominal area shaded on the diagram?
+English Instructions: INTERVIEWER INSTRUCTION: FOR FEMALES DO NOT INCLUDE MENSTRUAL PAIN. HAND CARD MCQ1
+Target:            Both males and females (20 YEARS - 150 YEARS)
+
+Categorical nominal/binary
+
+Code or Value      Value Description                   
+---------------------------------------------------------------------------------
+1                  Yes                                 
+2                  No                                  
+7                  Refused                             
+9                  Don't know                         
+.                  Missing                            
+
+----------------------------------------------
+
+MCQ550 - Has DR ever said you have gallstones
+----------------------------------------------
+Variable Name:     MCQ550
+SAS Label:         Has DR ever said you have gallstones
+English Text:      Has a doctor or other health professional ever told {you/SP} that {you/s/he} had gallstones?
+Target:            Both males and females (20 YEARS - 150 YEARS)
+
+Categorical nominal/binary
+
+Code or Value      Value Description                   
+---------------------------------------------------------------------------------
+1                  Yes                                 
+2                  No                                  
+7                  Refused                             
+9                  Don't know                         
+.                  Missing                            
+
+----------------------------------------------
+
+MCQ366A - Doctor told you to control/lose weight
+------------------------------------------------
+Variable Name:     MCQ366a
+SAS Label:         Doctor told you to control/lose weight
+English Text:      During the past 12 months {have you/has s/he} ever been told by a doctor or health professional to: control {your/his/her} weight or lose weight?
+Target:            Both males and females (16 YEARS - 150 YEARS)
+
+Categorical nominal/binary
+
+Code or Value      Value Description                   
+---------------------------------------------------------------------------------
+1                  Yes                                 
+2                  No                                  
+7                  Refused                             
+9                  Don't know                         
+.                  Missing                            
+
+----------------------------------------------
+
+MCQ366b - Doctor told you to exercise
+-------------------------------------
+Variable Name:     MCQ366b
+SAS Label:         Doctor told you to exercise
+English Text:      During the past 12 months {have you/has s/he} ever been told by a doctor or health professional to: increase {your/his/her} physical activity or exercise?
+Target:            Both males and females (16 YEARS - 150 YEARS)
+
+Categorical nominal/binary
+
+Code or Value      Value Description                   
+---------------------------------------------------------------------------------
+1                  Yes                                 
+2                  No                                  
+7                  Refused                             
+9                  Don't know                         
+.                  Missing                            
+
+----------------------------------------------
+
+MCQ366C - Doctor told you to reduce salt in diet
+------------------------------------------------
+Variable Name:     MCQ366c
+SAS Label:         Doctor told you to reduce salt in diet
+English Text:      During the past 12 months {have you/has s/he} ever been told by a doctor or health professional to: watch or reduce the amount of sodium or salt in {your/his/her} diet?
+Target:            Both males and females (16 YEARS - 150 YEARS)
+
+Categorical nominal/binary
+
+Code or Value      Value Description                   
+---------------------------------------------------------------------------------
+1                  Yes                                 
+2                  No                                  
+7                  Refused                             
+9                  Don't know                         
+.                  Missing                            
+
+----------------------------------------------
+
+MCQ366d - Doctor told you to reduce fat/calories
+------------------------------------------------
+Variable Name:     MCQ366d
+SAS Label:         Doctor told you to reduce fat/calories
+English Text:      During the past 12 months {have you/has s/he} ever been told by a doctor or health professional to: watch or reduce the amount of fat or calories in {your/his/her} diet?
+Target:            Both males and females (16 YEARS - 150 YEARS)
+
+Categorical nominal/binary
+
+Code or Value      Value Description                   
+---------------------------------------------------------------------------------
+1                  Yes                                 
+2                  No                                  
+7                  Refused                             
+9                  Don't know                         
+.                  Missing                            
+
+----------------------------------------------
+
+MCQ160L - Ever told you had any liver condition
+-----------------------------------------------
+Variable Name:     MCQ160l
+SAS Label:         Ever told you had any liver condition
+English Text:      Has a doctor or other health professional ever told {you/SP} that {you/s/he} . . .had any kind of liver condition?
+English Instructions: CAPI INSTRUCTION: TEXT OF QUESTION SHOULD BE OPTIONAL AFTER FIRST ITEM IS READ. INTERVIEWER: INCLUDE VIRAL HEPATITIS (INCLUDING HEPATITIS A, HEPATITIS B; AND HEPATITIS C); AUTOIMMUNE LIVER DISEASE (INCLUDING PRIMARY BILIARY CIRRHOSIS; AUTOIMMUNE HEPATITIS, SCLEROSING CHOLANGITIS); GENETIC LIVER DISEASES (INCLUDING ALPHA-1-ANTITRYSIN DEFICIENCY, HEMOCHROMOTOSIS, AND WILSON'S DISEASE); DRUG- OR MEDICATION-INDUCED LIVER DISEASE; ALCOHOLIC LIVER DISEASE; NON-ALCOHOLIC FATTY LIVER DISEASE; FATTY LIVER DISEASE; LIVER CANCER; LIVER CYST; LIVER ABSCESS; LIVER FIBROSIS; AND LIVER CIRRHOSIS. INTERVIEWER DO NOT INCLUDE GALLBLADDER DISEASE; GALLSTONES; OR CHOLECYSTITIS.
+Target:            Both males and females (20 YEARS - 150 YEARS)
+
+Categorical nominal/binary
+
+Code or Value      Value Description                   
+---------------------------------------------------------------------------------
+1                  Yes                                 
+2                  No                                  
+7                  Refused                             
+9                  Don't know                         
+.                  Missing                            
+
+----------------------------------------------
+
+MCQ300c - Close relative had diabetes?
+---------------------------------------
+Variable Name:     MCQ300c
+SAS Label:         Close relative had diabetes?
+English Text:      Including living and deceased, were any of {SP's/your} close biological that is, blood relatives including father, mother, sisters or brothers, ever told by a health professional that they had diabetes?
+English Instructions: CAPI INSTRUCTION: TEXT QUESTION SHOULD BE OPTIONAL, ' [ ] 'S, AFTER FIRST TIME.
+Target:            Both males and females (20 YEARS - 150 YEARS)
+
+Categorical nominal/binary
+
+Code or Value      Value Description                   
+---------------------------------------------------------------------------------
+1                  Yes                                 
+2                  No                                  
+7                  Refused                             
+9                  Don't know                         
+.                  Missing                            
+
+----------------------------------------------
 
 PAQ605 - Vigorous work activity
 ---------------------------------------
@@ -2259,29 +2472,6 @@ Code or Value      Value Description
 ---------------------------------
 1                  Yes
 2                  No
-7                  Refused
-9                  Don't know
-.                  Missing
-
----------------------------------------
-
-SLQ120 - How often feel overly sleepy during day?
----------------------------------------
-Variable Name:     SLQ120
-SAS Label:         How often feel overly sleepy during day?
-English Text:      In the past month, how often did {you/SP} feel excessively or overly sleepy during the day?
-English Instructions: HAND CARD SLQ1
-Target:            Both males and females 16 YEARS - 150 YEARS
-
-Categorical ordinal
-
-Code or Value      Value Description
----------------------------------
-0                  Never
-1                  Rarely - 1 time a month
-2                  Sometimes - 2-4 times a month
-3                  Often- 5-15 times a month
-4                  Almost always - 16-30 times a month
 7                  Refused
 9                  Don't know
 .                  Missing
