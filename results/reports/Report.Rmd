@@ -88,15 +88,17 @@ knitr::include_graphics("../figures/cond_ks_prop.png")
 
 [Explain the variables, comment on the main features, and interpret the results.]
 
-## Correlation and Percentage Difference Analysis
-
-To explore the relationship between dietary factors and kidney stones, we conducted a correlation analysis and calculated the percentage difference of these factors between individuals with and without kidney stones. The following graph shows the results of this analysis:
+## Percentage Difference Analysis
 
 ```{r correlation-percentage-diff-plot, fig.width=12, fig.height=8}
-knitr::include_graphics("../figures/combined_dietary_correlation_and_difference.png")
+knitr::include_graphics("../figures/dietary_difference.png")
 ```
 
-[Here, provide an interpretation of the graph. Explain what the correlation matrix shows, what the percentage differences indicate, and discuss any notable patterns or findings from this analysis. You may want to highlight the most strongly correlated dietary factors with kidney stones and the largest percentage differences between those with and without kidney stones.]
+Retinol (a form of vitamin A) shows the largest positive difference, with individuals with kidney stones consuming approximately 23.5% more than those without. This suggests a potential positive association between retinol intake and kidney stone formation.
+Conversely, beta-carotene (another form of vitamin A) displays the most substantial negative difference, with kidney stone formers consuming about 24.7% less. This unexpected finding warrants further investigation into the potential protective effects of beta-carotene or differences in vitamin A metabolism.
+Among the top factors, we see a trend in vitamins and antioxidants, particularly forms of vitamin A, vitamin B12, and vitamin E (alpha-tocopherol). This pattern suggests that the balance and forms of certain vitamins may play a role in kidney stone formation.
+Interestingly, alcohol consumption shows a large negative difference (-22.4%), indicating that individuals with kidney stones tend to consume significantly less alcohol. This finding challenges some traditional assumptions about alcohol and kidney stone risk.
+The substantial differences observed in polyunsaturated fatty acids (PFAs), particularly docosahexaenoic acid (DHA, -22.3%) and eicosapentaenoic acid (EPA, -16.8%), indicate that these dietary components might be particularly important in distinguishing between individuals prone to kidney stones and those who are not.
 
 ## Analysis 2: [Title]
 
