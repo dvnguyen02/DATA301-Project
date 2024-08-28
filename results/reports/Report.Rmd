@@ -49,9 +49,20 @@ Feature type ranges from numerical continuous to catgeorical ordinal, nominal, a
 na_df <- read.csv("../figures/na_prop.csv")
 ```
 
+`r sum(na_df$Proportion == 0) - 2` features have no missing values (not including the unique identifier and target variable columns). Features that do have missing data can be summarised as follows:
+
+* `r sum((na_df$Proportion > 0) & (na_df$Proportion <= 0.25))` features have under 25% missing data; 
+* `r sum((na_df$Proportion > 0.25) & (na_df$Proportion <= 0.50))` features have 25 - 50% missing data; 
+* `r sum((na_df$Proportion > 0.5) & (na_df$Proportion <= 0.75))` features have 50 - 75% missing data; 
+* `r sum((na_df$Proportion > 0.75) & (na_df$Proportion <= 1))` features have 75% - 100% missing data.
+
+Thus the majority of features do have a missing data, and most have under 20% (Figure *?*). A very large number of features have the same proportion of missing data as shown in Figure *?*; all these features are from the same table concerning nutritional intake - likely to be a consistent subset of people that participate in the dietary interview. 
+
 ```{r}
 knitr::include_graphics("../figures/na_prop.png")
 ```
+*figure num, description*
+
 
 ## Data Integration (if applicable)
 
@@ -81,10 +92,12 @@ knitr::include_graphics("../figures/na_prop.png")
 ```{r}
 knitr::include_graphics("../figures/demo_ks_prev.png")
 ```
+*figure num, description*
 
 ```{r}
 knitr::include_graphics("../figures/cond_ks_prop.png")
 ```
+*figure num, description*
 
 [Explain the variables, comment on the main features, and interpret the results.]
 
