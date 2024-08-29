@@ -106,7 +106,7 @@ knitr::include_graphics("../figures/lab_dist.png")
 
 [Explain the variables, comment on the main features, and interpret the results.]
 
-## Percentage Difference Analysis
+## Dietary Difference
 
 ```{r correlation-percentage-diff-plot, fig.width=12, fig.height=8}
 knitr::include_graphics("../figures/dietary_difference.png")
@@ -117,6 +117,13 @@ Conversely, beta-carotene (another form of vitamin A) displays the most substant
 Among the top factors, we see a trend in vitamins and antioxidants, particularly forms of vitamin A, vitamin B12, and vitamin E (alpha-tocopherol). This pattern suggests that the balance and forms of certain vitamins may play a role in kidney stone formation.
 Interestingly, alcohol consumption shows a large negative difference (-22.4%), indicating that individuals with kidney stones tend to consume significantly less alcohol. This finding challenges some traditional assumptions about alcohol and kidney stone risk.
 The substantial differences observed in polyunsaturated fatty acids (PFAs), particularly docosahexaenoic acid (DHA, -22.3%) and eicosapentaenoic acid (EPA, -16.8%), indicate that these dietary components might be particularly important in distinguishing between individuals prone to kidney stones and those who are not.
+
+### Time Spent Sitting
+
+```{r physical_activity, fig.width=12, fig.height=8}
+knitr::include_graphics("../figures/time_spent_sitting_kidney_stones.png")
+```
+Both groups show a similar overall pattern, with the majority of individuals spending between 0 and 500 minutes (approximately 0-8.33 hours) sitting per day. However, there are notable differences: those without kidney stones (orange line) have a slightly higher peak density at lower sitting times, suggesting they are more likely to spend less time sitting overall. In contrast, the distribution for those with kidney stones (blue line) is slightly flatter and shifted slightly to the right, indicating a tendency towards longer sitting durations. Interestingly, both groups show a small secondary peak around 9000-10000 minutes (150-167 hours) per day, which likely represents outliers or potential data collection errors, as these values exceed the number of minutes in a day. 
 
 ## Analysis 2: [Title]
 
