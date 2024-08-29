@@ -9,7 +9,7 @@ This directory contains all our data files.
 
 - **/raw_tables**: Store all individual raw data tables here.
   - Example: `P_ALB_CR.XPT`, `P_ALQ.XPT`, etc.
-- `merged_table.csv`: The final merged dataset combining all raw tables.
+- `merged_data_clean.csv`: The final merged dataset combining all raw tables.
 - `data_quality_summary.csv`: Summary of data quality checks for our datasets.
 
 ### /logs
@@ -23,7 +23,7 @@ This directory is for storing operational logs.
 Store all scripts used for data processing, cleaning, and analysis here.
 
 - `data_quality_check.py`: Script for checking the raw data.
-- `merge.py`: Script for merging individual tables.
+- `convert_XPT.R`: Script for merging individual tables.
 
 ### /docs
 
@@ -34,7 +34,7 @@ This folder is for project documentation.
 ### /EDA
 
 Store your analysis files here, such as Jupyter notebooks/ R markdown.
-
+- `background-and-data.ipynb`: Missing data analysis, and some EDA
 
 ### /results
 
