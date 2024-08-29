@@ -92,10 +92,15 @@ knitr::include_graphics("../figures/na_prop.png")
 ```{r}
 knitr::include_graphics("../figures/demo_ks_prev.png")
 ```
-*figure num, description*
+*figure num, description (i will write abt these figs later)*
 
 ```{r}
 knitr::include_graphics("../figures/cond_ks_prop.png")
+```
+*figure num, description*
+
+```{r}
+knitr::include_graphics("../figures/lab_dist.png")
 ```
 *figure num, description*
 
