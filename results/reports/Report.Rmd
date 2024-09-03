@@ -115,16 +115,17 @@ knitr::include_graphics("../figures/dietary_difference.png")
 
 Figure 5: Dietary Differences
 
-Retinol (a form of vitamin A) shows the largest positive difference, with individuals with kidney stones consuming approximately 23.5% more than those without. This suggests a potential positive association between retinol intake and kidney stone formation.
+Retinol (a form of vitamin A) shows the largest positive difference, with individuals who have had kidney stones consuming approximately 23.5% more than those who have not. This suggests a potential association between higher retinol intake and a history of kidney stones.
 
-Conversely, beta-carotene (another form of vitamin A) displays the most substantial negative difference, with kidney stone formers consuming about 24.7% less. This unexpected finding warrants further investigation into the potential protective effects of beta-carotene or differences in vitamin A metabolism.
+Conversely, beta-carotene (another form of vitamin A) displays the most substantial negative difference, with those who have had kidney stones consuming about 24.7% less. This unexpected finding warrants further investigation into the potential protective effects of beta-carotene or differences in vitamin A metabolism among those with a history of kidney stones.
 
-Among the top factors, we see a trend in vitamins and antioxidants, particularly forms of vitamin A, vitamin B12, and vitamin E (alpha-tocopherol). This pattern suggests that the balance and forms of certain vitamins may play a role in kidney stone formation.
+Among the top factors, we see a trend in vitamins and antioxidants, particularly forms of vitamin A, vitamin B12, and vitamin E (alpha-tocopherol). This pattern suggests that the balance and forms of certain vitamins may be different in individuals with a history of kidney stones.
+Interestingly, alcohol consumption shows a large negative difference (-22.4%), indicating that individuals who have had kidney stones tend to consume significantly less alcohol. This could suggest that those with a history of kidney stones may have modified their diet to reduce alcohol intake.
+The substantial differences observed in polyunsaturated fatty acids (PFAs), particularly docosahexaenoic acid (DHA, -22.3%) and eicosapentaenoic acid (EPA, -16.8%), indicate that these dietary components might be particularly important in distinguishing between individuals with a history of kidney stones and those without.
 
-Interestingly, alcohol consumption shows a large negative difference (-22.4%), indicating that individuals with kidney stones tend to consume significantly less alcohol. This finding challenges some traditional assumptions about alcohol and kidney stone risk.
+Total bottled water consumption is 12.7% higher in those with a history of kidney stones, which could reflect increased fluid intake as a preventive measure.
 
-The substantial differences observed in polyunsaturated fatty acids (PFAs), particularly docosahexaenoic acid (DHA, -22.3%) and eicosapentaenoic acid (EPA, -16.8%), indicate that these dietary components might be particularly important in distinguishing between individuals prone to kidney stones and those who are not.
-
+Cholesterol intake is 9% higher in individuals who have had kidney stones, which might be relevant to kidney stone formation.
 ## 5.4 Physical Activity Analysis
 
 ```{r}
@@ -141,8 +142,10 @@ knitr::include_graphics("../figures/physical_activities.png")
 
 Figure 7: Physical Activities
 
-[Add detailed description and interpretation of the physical activities figure]
+Across all categories of physical activity, individuals without a history of kidney stones consistently reported slightly higher levels of engagement.
+The largest differences were observed in Walking or cycling for at least 10 minutes (4.8 percentage point difference). The smallest difference was in work-related vigorous-intensity activity (0.8 percentage point).
 
+These findings suggest a possible association between higher physical activity levels and lower likelihood of kidney stone formation. However, the differences are relatively small, and causation cannot be inferred from this data alone.
 # 6. Discussion
 
 [Summarize key findings and their implications]
