@@ -143,10 +143,11 @@ knitr::include_graphics("../figures/physical_activities.png")
 
 Figure 7: Physical Activities
 
-Across all categories of physical activity, individuals without a history of kidney stones consistently reported slightly higher levels of engagement.
-The largest differences were observed in Walking or cycling for at least 10 minutes (4.8 percentage point difference). The smallest difference was in work-related vigorous-intensity activity (0.8 percentage point).
+Across all categories of physical activity, individuals without a history of kidney stones consistently reported slightly higher levels of physical activity engagement.
+The largest differences were observed in activity "Walking or cycling for at least 10 minutes" with 4.8 percentage point difference. The smallest difference was in work-related vigorous-intensity activity (0.8 percentage point).
 
-These findings suggest a possible association between higher physical activity levels and lower likelihood of kidney stone formation. However, the differences are relatively small, and causation cannot be inferred from this data alone.
+These findings might suggest a possible association between higher physical activity levels and lower likelihood of kidney stone formation. However, the differences are relatively small, and causation cannot be inferred from this data alone.
+
 # 6. Discussion
 
 [Summarize key findings and their implications]
