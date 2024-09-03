@@ -34,9 +34,14 @@ Data from the most recent cycle is used, [NHANES 2017 - March 2020](https://wwwn
 df <- read.csv("../../data/merged_data_clean.csv")
 ```
 
+Data from each NHANES cycle is released as many tables, each containing a collection of similar features. For the specific focus on kidney stone disease, only a subset of tables is used, and from these tables, only a subset of key features. The integrated dataset used in this project is composed of `r nrow(df)` instances/rows, and `r ncol(df)` columns. The column `SEQN` contains a unique identifier for each instance, and the column `KIQ026` contains the target variable. Thus, there are `r ncol(df) - 2` informative features. 
+
 The target variable belongs to the Questionnaire component of NHANES, and is phrased as "Ever had kidney stones?". Possible answers of this question are "Yes", "No", "Refused", and "Don't know". Only Yes/No are used as the binary classification label of this project (details are discussed in 1.4: Data Integration).
 
-Data from each NHANES cycle is released as many tables, each containing a collection of similar features. For the specific focus on kidney stone disease, only a subset of tables is used, and from these tables, only a subset of key features. The integrated dataset used in this project is composed of `r nrow(df)` instances/rows, and `r ncol(df)` columns. The column `SEQN` contains a unique identifier for each instance, and the column `KIQ026` contains the target variable. Thus, there are `r ncol(df) - 2` informative features. 
+Counts and proportion of Yes/No of the target variable are as follows:
+
+* Yes, has had kidney stones: 866 instances | `r signif((sum(df$KIQ026 == 1)/nrow(df)), 4)`
+* No, has not had kidney stones: 8342 instances | `r signif(sum(df$KIQ026 == 2)/nrow(df), 4)`
 
 The key features are broadly described in the following:
 
@@ -85,11 +90,11 @@ Over half of features have less than 20% missing data (Figure 1a). Features from
 
 `KIQ010`, `DSD128V`, and `DSD128FF` are features with very high percentages of missing data (over 50%), as seen in Figure 1b. They have structural missingness - e.g. in the case of `KIQ010`, recording a value for the amount of urine lost is dependent on the participant affirming that they have had urinary leakage, which most participants have not. Likewise, `DSD128V` and `DSD128FF` are both dependent on the participant affiriming that they do take supplements, which, again, may not be the case for most.
 
-It is important to consider missing data when combining or transforming features. Creating another feature that is an average of all three pulse readings (`BPXOPLS1, 2, 3`) will not result in loss of instances, as the features have equivalent proportions of missing data (assumed to belong to the same instances). However, creating a feature that is the average of urine flow rates (`URDFLOW1, 2, 3`) will result in loss of instances, as all have different proportions of missing data; `URDFLOW3` has nearly 100% missing data, `URDFLOW2` has close to 90%, and `URDFLOW` has under 20%. It is wiser to simply preserve the feature with the least missing data (`URDFLOW1`), instead of attempting feature combination.
+It is important to consider missing data when combining or transforming features. Creating another feature that is an average of all three pulse readings (`BPXOPLS1, 2, 3`) will not result in loss of instances, as the features have equivalent proportions of missing data (assumed to belong to the same instances). However, creating a feature that is the average of urine flow rates (`URDFLOW1, 2, 3`) will result in loss of instances, as all have different proportions of missing data; `URDFLOW3` has nearly 100% missing data, `URDFLOW2` has close to 90%, and `URDFLOW` has approximately 20%. It is wiser to simply preserve the feature with the least missing data (`URDFLOW1`), instead of attempting feature combination.
 
 ## 1.4 Data Integration
 
-Individual tables were obtained from the [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm) site and joined along the unique respondent sequence number variable, `SEQN`, regardless of unmatched `SEQN`s or missing values in features (full outer join). In instances with duplicate `SEQN` but mismatching remaining values, the first instance was taken(**state why here if have time to investigate**).
+Individual tables were obtained from the [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm) site and joined along the unique respondent sequence number variable, `SEQN`, regardless of unmatched `SEQN`s or missing values in features (full outer join). In instances with duplicate `SEQN` but mismatching remaining values, the first instance was taken (**state why here if have time to investigate**).
 
 All instances with missing values, recorded "Refused", or "Don't know" for the target variable were then removed from the data.
 
@@ -119,29 +124,49 @@ All instances with missing values, recorded "Refused", or "Don't know" for the t
 knitr::include_graphics("../figures/demo_ks_prev.png")
 ```
 
-Figure 2: Demographic Kidney Stone Prevalence
+Figure 2: Kidney stone prevalence against demographic features age, gender, marital status, education level, race, and ratio of family income to poverty guidelines.
 
-[Detailed description and interpretation of the demographic kidney stone prevalence figure]
+Demographic features against kidney stone prevalence are depicted in Figure 2. At a younger age (20 - 40 years of age), a notably higher proportion of people have never had kidney stones as opposed to have. As age increases (> 50 years of age), the proportion of people who have never had kidney stones becomes less than those who have. The overall prevalence of having had kidney stones increases steadily from 20 - 40 years of age, plateaus after 40 years of age, then increases again to peak at ~60 years of age.
+
+Approximately 10% of males have had kidney stones, while a lesser percentage of around 8% of females have. Thus, kidney stones among males are slightly higher than the overall prevalence of kidney stones (~9.4%), while females are slightly below.
+
+Those that are married/living with partner or widowed/divorced/separated show a greater prevalence of kidney stones than those that have never married. Never married people also have a much lower prevalence than overall kidney stone prevalance. However, this may be due to the confounding factor of age, instead of an inherent characteristic of having been married before that increases kidney stone occurance.
+
+As education level changes, the proportion of those who have had kidney stones fluctuates, but there is no obvious trend among successive education levels. The difference between the education level with the highest kidney stone prevalence (college/AA degree at ~10%) and lowest (high school grad/GED at ~8%) is relatively minimal.
+
+There is clear fluctuation in kidney stone prevalence among different races, with Asian and Black people at the lowest (just above 5% have had kidney stones), increasing to Mexican Americans (approximately 8%), and highest in other Hispanic (over 10%), other/multiracial, and White people (both close to 15%). There is a large distinction (~10%) between the lowest and highest prevalence. The low and high proportions are also significantly different from the overall kidney stone prevalence of 9.4%.
+
+At a lower to middle ratio of family income to poverty guidelines (0 - 4), it is slightly more common to not have had kidney stones, but not significantly. At a higher ratio (4 - 5), there is a large difference - the prevalence of never having had kidney stones is notably higher than having had them. 
+
+Overall, Figure 2 indicates that nearly all demographic features - age, gender, marital status, race, and ratio of family income to poverty guidelines - are associated with prevalence of kidney stones. Confirming previous research, older people and males are more likely to have had kidney stones. Age may be a confounding factor in the apparent association of kidney stone occurance with marital status, but regardless it can still be a useful feature. The lack of significant association between education level and kidney stones indicate that it might be uninformative in a predictive context.
+
+## 4.2 Health Conditions Analysis
 
 ```{r}
 knitr::include_graphics("../figures/cond_ks_prop.png")
 ```
 
-Figure 3: Condition Kidney Stone Proportion
+Figure 3: The proportion of people with various other conditions that also have had kidney stones.
 
-[Detailed description and interpretation of the condition kidney stone proportion figure]
+Gallstones and weak/failing kidneys are the most strongly associated with kidney stone occurance, with close to 25% of people having (either or both of) those conditions also having had kidney stones. Between ~11% and ~15% of people who have the remaining conditions also have had kidney stones. All these are much higher than overall kidney stone prevalence (9.4%), indicating that these features are likely to be useful for a predictive model. It can be noted that some of these conditions may also possess a high degree of correlation between each other, which may be reflected in their similar proportions in Figure 3, e.g. being overweight and having high cholesterol. Feature combination/transformation could be used to reduce dimensionality.
 
-## 4.2 Laboratory Analysis
+## 4.3 Laboratory Analysis
 
 ```{r}
 knitr::include_graphics("../figures/lab_dist.png")
 ```
 
-Figure 4: Laboratory Distribution
+Figure 4: Density distribution of laboratory features by kidney stone occurance.
 
-[Detailed description and interpretation of the laboratory distribution figure]
+The differences in distributions of laboratory features of those who have had kidney stones versus those that have not is shown in Figure 4. 
 
-## 4.3 Dietary Analysis
+Most laboratory features appear within expected ranges, with the exception of uric acid. There appears to be outlier(s) skewing this feature with up to 10000 mg/dL uric acid, which is likely to be an error as ordinary uric acid levels should not exceed the single-digit mg/dL range. 
+
+Distribution shape of laboratory features remains relatively identical, regardless of kidney stone status. Distributions for fasting glucose and total calcium are shifted slightly right (towards higher values) for those who have had kidney stones. The peak bin for blood urea nitrogen is at a marginally lower value for those who have had kidney stones in comparison to those who have not. Albumin creatinine ratio appears to peak later, and remain slightly higher, at increasing mg/g for those who have had kidney stones. Distributions for lead and uric acid are consistent for both kidney stone statuses - however, detail in the uric acid histogram may be obscured by the outlier(s). 
+
+Figure 4 indicates that uric acid and lead are not associated with kidney stone prevalence. The remaining laboratory features are associated due to differing distributions according to kidney stone status.
+
+## 4.4 Dietary Analysis
 
 ```{r}
 knitr::include_graphics("../figures/dietary_difference.png")
@@ -159,7 +184,7 @@ Interestingly, alcohol consumption shows a large negative difference (-22.4%), i
 
 The substantial differences observed in polyunsaturated fatty acids (PFAs), particularly docosahexaenoic acid (DHA, -22.3%) and eicosapentaenoic acid (EPA, -16.8%), indicate that these dietary components might be particularly important in distinguishing between individuals prone to kidney stones and those who are not.
 
-## 4.4 Physical Activity Analysis
+## 4.5 Physical Activity Analysis
 
 ```{r}
 knitr::include_graphics("../figures/time_spent_sitting_kidney_stones.png")
