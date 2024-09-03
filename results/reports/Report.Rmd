@@ -85,11 +85,13 @@ Over half of features have less than 20% missing data (Figure 1a). Features from
 
 `KIQ010`, `DSD128V`, and `DSD128FF` are features with very high percentages of missing data (over 50%), as seen in Figure 1b. They have structural missingness - e.g. in the case of `KIQ010`, recording a value for the amount of urine lost is dependent on the participant affirming that they have had urinary leakage, which most participants have not. Likewise, `DSD128V` and `DSD128FF` are both dependent on the participant affiriming that they do take supplements, which, again, may not be the case for most.
 
-It is important to consider missing data when combining or transforming features. Creating another feature that is an average of all three pulse readings (`BPXOPLS1, 2, 3`) will not result in loss of instances, as the features have equivalent proportions of missing data (assumed to belong to the same instances). However, creating a feature that is the average of urine flow rates (`URDFLOW1, 2, 3`) will result in loss of instances, as all have different proportions of missing data; `URDFLOW3` has nearly 100% missing data, `URDFLOW2` has close to 90%, and `URDFLOW` has under 20%. In situations such as this, it is wiser to simply preserve the feature with the least missing data (`URDFLOW1`), instead of attempting feature combination.
+It is important to consider missing data when combining or transforming features. Creating another feature that is an average of all three pulse readings (`BPXOPLS1, 2, 3`) will not result in loss of instances, as the features have equivalent proportions of missing data (assumed to belong to the same instances). However, creating a feature that is the average of urine flow rates (`URDFLOW1, 2, 3`) will result in loss of instances, as all have different proportions of missing data; `URDFLOW3` has nearly 100% missing data, `URDFLOW2` has close to 90%, and `URDFLOW` has under 20%. It is wiser to simply preserve the feature with the least missing data (`URDFLOW1`), instead of attempting feature combination.
 
 ## 1.4 Data Integration
 
+Individual tables were obtained from the [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm) site and joined along the unique respondent sequence number variable, `SEQN`, regardless of unmatched `SEQN`s or missing values in features (full outer join). In instances with duplicate `SEQN` but mismatching remaining values, the first instance was taken(**state why here if have time to investigate**). The resulting data consisted of 
 
+All instances with missing values, recorded "Refused", or "Don't know" for the target variable were then removed from the data.
 
 # 2. Ethics, Privacy, and Security
 
