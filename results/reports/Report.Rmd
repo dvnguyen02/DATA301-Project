@@ -16,27 +16,27 @@ library(kableExtra)
 
 \newpage
 
-# 1. Introduction
+# 1. Background and Data
 
-[Brief introduction to the project and its objectives]
+## 1.1 Background
 
-# 2. Background and Data
-
-## 2.1 Dataset
-
-This project is based on the [National Health and Nutrition Examination Survey](https://www.cdc.gov/nchs/nhanes/index.htm) (NHANES) from the [National Center for Health Statistics](https://www.cdc.gov/nchs/index.htm), of the [Centers for Disease Control and Prevention](https://www.cdc.gov/). Data from the most recent cycle is used, [NHANES 2017 - March 2020](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2017-2020).
+Is kidney stone prevalence associated with factors such as diet, lifestyle, and other existing medical conditions? This project is based on the [National Health and Nutrition Examination Survey](https://www.cdc.gov/nchs/nhanes/index.htm) (NHANES) from the [National Center for Health Statistics](https://www.cdc.gov/nchs/index.htm), of the [Centers for Disease Control and Prevention](https://www.cdc.gov/). 
 
 NHANES is an ongoing program of surveys in the United States that assesses the health and nutritional status of adults and children. The surveys collect health-related data ranging over a number of topics, which are organised broadly into Demographics, Dietary, Examination, Laboratory, and Questionnaire.
 
-[Add: Explanation of why this dataset is of interest, what questions it could be used to answer, and what specific question this project aims to address]
+This report presents an exploratory data analysis, investigating variables previously shown to be associated with kidney stone prevalence. The distribution, quality, and completeness of relevant data in NHANES is evaluated. The aim is to explore and identify potentially suitable features for developing a machine learning model to predict kidney stone prevalence using the NHANES dataset.
 
-## 2.2 Data Structure and Types
+Data from the most recent cycle is used, [NHANES 2017 - March 2020](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2017-2020).
+
+## 1.2 Data Structure and Types
 
 ```{r}
 df <- read.csv("../../data/merged_data_clean.csv")
 ```
 
-Data from each NHANES cycle is released as many tables, each containing a collection of similar features. For the specific focus on kidney stone disease, only a subset of tables was used, and from these tables, only a subset of key features. The integrated dataset used in this project is composed of `r nrow(df)` instances/rows, and `r ncol(df)` columns. The column `SEQN` contains a unique identifier for each instance, and the column `KIQ026` contains the target variable. Thus, there are `r ncol(df) - 2` informative features. 
+The target variable belongs to the Questionnaire component of NHANES, and is phrased as "Ever had kidney stones?". Possible answers of this question are "Yes", "No", "Refused", and "Don't know". Only Yes/No are used as the binary classification label of this project (details are discussed in 1.4: Data Integration).
+
+Data from each NHANES cycle is released as many tables, each containing a collection of similar features. For the specific focus on kidney stone disease, only a subset of tables is used, and from these tables, only a subset of key features. The integrated dataset used in this project is composed of `r nrow(df)` instances/rows, and `r ncol(df)` columns. The column `SEQN` contains a unique identifier for each instance, and the column `KIQ026` contains the target variable. Thus, there are `r ncol(df) - 2` informative features. 
 
 The key features are broadly described in the following:
 
@@ -46,15 +46,27 @@ The key features are broadly described in the following:
 * Laboratory: aspects of biochemistry profile, and urine-associated tests. Detection of kidney diseases or urinary tract abnormalities (that can lead to kidney stones) are often tested by assessing levels of components such as glucose, lead, and the albumin creatinine ratio in urine.
 * Questionnaire: past medical history (conditions and medicines), dietary and alcohol habits, urinary tract function, physical activity, smoking, and sleep habits. Again, general health, behaviours, and lifestyle have a large influence on kidney stone disease. Factors such as lack of physical activity and smoking can indirectly damage the urinary tract and promote stone formation.
 
-Feature type ranges from numerical continuous to catgeorical ordinal, nominal, and binary. Dietary, examination, and laboratory data are mainly numerical, while demographic and questionnaire data are mainly categorical. To avoid difficult or complicated natural languange processing or text mining, free-text data was not selected.
+Feature type ranges from numerical continuous to categorical binary, nominal, and ordinal. Dietary, examination, and laboratory data are mainly numerical, while demographic and questionnaire data are mainly categorical. To avoid difficult or complicated natural languange processing or text mining, free-text data was not selected.
 
-## 2.3 Data Completeness
+Counts of feature types and brief examples are as follows:
+
+* 97 numerical features, e.g: 
+  * Energy in kilocalories (continuous)
+  * Age in years (discrete)
+* 49 categorical features e.g: 
+  * Gender (binary: male, female)
+  * Race (nominal: Mexican American, other Hispanic, white, etc.)
+  * Diet healthiness (ordinal: excellent, very good, fair, etc.)
+
+## 1.3 Data Completeness
 
 ```{r}
 na_df <- read.csv("../figures/na_prop.csv")
 ```
 
-`r sum(na_df$Proportion == 0) - 2` features have no missing values (not including the unique identifier and target variable columns). Features that do have missing data can be summarised as follows:
+`r sum(na_df$Proportion == 0) - 2` features have no missing values (not including the unique identifier and target variable columns). 
+
+Features that do have missing data can be summarised as follows:
 
 * `r sum((na_df$Proportion > 0) & (na_df$Proportion <= 0.25))` features have under 25% missing data; 
 * `r sum((na_df$Proportion > 0.25) & (na_df$Proportion <= 0.50))` features have 25 - 50% missing data; 
@@ -67,27 +79,31 @@ knitr::include_graphics("../figures/na_prop.png")
 
 Figure 1: Distribution of missing data across features
 
-# 3. Ethics, Privacy, and Security
+## 1.4 Data Integration
 
-## 3.1 Ethical Considerations
+
+
+# 2. Ethics, Privacy, and Security
+
+## 2.1 Ethical Considerations
 
 [Discuss ethical considerations relevant to your project, such as potential biases in the data or implications of findings]
 
-## 3.2 Privacy Concerns
+## 2.2 Privacy Concerns
 
 [Address privacy concerns related to your project, such as handling of personal health information]
 
-## 3.3 Security Measures
+## 2.3 Security Measures
 
 [Explain actual and potential steps to keep your project data and results secure]
 
-# 4. Methodology
+# 3. Methodology
 
 [Describe the methods used for data cleaning, preprocessing, and analysis]
 
-# 5. Exploratory Data Analysis
+# 4. Exploratory Data Analysis
 
-## 5.1 Demographic Analysis
+## 4.1 Demographic Analysis
 
 ```{r}
 knitr::include_graphics("../figures/demo_ks_prev.png")
@@ -105,7 +121,7 @@ Figure 3: Condition Kidney Stone Proportion
 
 [Detailed description and interpretation of the condition kidney stone proportion figure]
 
-## 5.2 Laboratory Analysis
+## 4.2 Laboratory Analysis
 
 ```{r}
 knitr::include_graphics("../figures/lab_dist.png")
@@ -115,7 +131,7 @@ Figure 4: Laboratory Distribution
 
 [Detailed description and interpretation of the laboratory distribution figure]
 
-## 5.3 Dietary Analysis
+## 4.3 Dietary Analysis
 
 ```{r}
 knitr::include_graphics("../figures/dietary_difference.png")
@@ -133,7 +149,7 @@ Interestingly, alcohol consumption shows a large negative difference (-22.4%), i
 
 The substantial differences observed in polyunsaturated fatty acids (PFAs), particularly docosahexaenoic acid (DHA, -22.3%) and eicosapentaenoic acid (EPA, -16.8%), indicate that these dietary components might be particularly important in distinguishing between individuals prone to kidney stones and those who are not.
 
-## 5.4 Physical Activity Analysis
+## 4.4 Physical Activity Analysis
 
 ```{r}
 knitr::include_graphics("../figures/time_spent_sitting_kidney_stones.png")
@@ -151,20 +167,20 @@ Figure 7: Physical Activities
 
 [Add detailed description and interpretation of the physical activities figure]
 
-# 6. Discussion
+# 5. Discussion
 
 [Summarize key findings and their implications]
 [Discuss limitations of the study]
 [Suggest areas for future research]
 
-# 7. Conclusion
+# 6. Conclusion
 
 [Provide a concise summary of the main findings and their significance]
 
-# 8. Individual Contributions
+# 7. Individual Contributions
 
 [State the contributions of each group member to data preparation, analysis, and report writing]
 
-# 9. References
+# 8. References
 
 [List references using a consistent citation style]
