@@ -89,7 +89,7 @@ It is important to consider missing data when combining or transforming features
 
 ## 1.4 Data Integration
 
-Individual tables were obtained from the [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm) site and joined along the unique respondent sequence number variable, `SEQN`, regardless of unmatched `SEQN`s or missing values in features (full outer join). In instances with duplicate `SEQN` but mismatching remaining values, the first instance was taken(**state why here if have time to investigate**). The resulting data consisted of 
+Individual tables were obtained from the [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm) site and joined along the unique respondent sequence number variable, `SEQN`, regardless of unmatched `SEQN`s or missing values in features (full outer join). In instances with duplicate `SEQN` but mismatching remaining values, the first instance was taken(**state why here if have time to investigate**).
 
 All instances with missing values, recorded "Refused", or "Don't know" for the target variable were then removed from the data.
 
