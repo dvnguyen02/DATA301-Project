@@ -68,8 +68,8 @@ df <- merged_df %>%
         which(colnames(merged_df) == p_dr1tot_range2[1]):which(colnames(merged_df) == p_dr1tot_range2[2])
     ) %>%
     filter(!is.na(KIQ026)) %>%
-    filter(KIQ026 != 9)
-distinct(SEQN, .keep_all = TRUE)
+    filter(KIQ026 != 9) %>%
+    distinct(SEQN, .keep_all = TRUE)
 
 # save csv to current directory
 write.csv(df, "merged_data_clean.csv", row.names = FALSE)
