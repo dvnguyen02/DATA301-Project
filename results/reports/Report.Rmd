@@ -126,6 +126,7 @@ The substantial differences observed in polyunsaturated fatty acids (PFAs), part
 Total bottled water consumption is 12.7% higher in those with a history of kidney stones, which could reflect increased fluid intake as a preventive measure.
 
 Cholesterol intake is 9% higher in individuals who have had kidney stones, which might be relevant to kidney stone formation.
+
 ## 5.4 Physical Activity Analysis
 
 ```{r}
