@@ -160,6 +160,7 @@ Figure 10: The risk of trouble sleeping to kidney stone
 Note(told doctor about having trouble sleeping mean that they have issue about sleeping and didn't told doctor about having trouble sleeping mean that they have  don't issue about sleeping)
 
 In this graph you can see the proportion of people who have kidney stone or not for people with some certain characteristics(having a sleeping issue, don't have a sleeping issue, don't know and refusing to answer). In this case, I will not account for people who answer I don't know and refuse. Since number of them is low, and I am not sure if I should assume they they having trouble sleeping or not. So just look people who having trouble sleeping(Yes)  and people who didn't having trouble sleeping(No). You can see the proportion of kidney stone for people who answer yes is higher then who answer no. From this it show the correlation between risk of kidney stone and smoking and it back up the research that say their is causation between risk of kidney stone and having sleeping issue.
+
 # 6. Discussion
 
 [Summarize key findings and their implications]
