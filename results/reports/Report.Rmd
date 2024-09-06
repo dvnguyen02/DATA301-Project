@@ -14,6 +14,20 @@ library(knitr)
 library(kableExtra)
 ```
 
+## Group Members
+
+```{r group-members-table, echo=FALSE}
+group_members <- data.frame(
+  Name = c("Brook (lastname)", "Katie (lastname)", "Thinh (lastname)", "David Nguyen"),
+  `Student ID` = c("12345678", "87654321", "11223344", "300584723")
+)
+
+kable(group_members, format = "latex", booktabs = TRUE, caption = "Group Members and Student IDs") %>%
+  kable_styling(latex_options = c("striped", "hold_position"),
+                full_width = FALSE,
+                position = "center")
+```
+
 \newpage
 
 # 1. Background and Data
