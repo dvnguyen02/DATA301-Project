@@ -102,7 +102,7 @@ All instances with missing values, recorded "Refused", or "Don't know" for the t
 
 ## 2.1 Ethical Considerations
 
-David
+Brook
 [Discuss ethical considerations relevant to your project, such as potential biases in the data or implications of findings]
 
 ## 2.2 Privacy Concerns
@@ -112,10 +112,7 @@ Brook
 
 ## 2.3 Security Measures
 
-David
-
-[Explain actual and potential steps to keep your project data and results secure]
-
+To ensure the security of the NHANES dataset and compliance with the National Center for Health Statistics (NCHS) requirements, our project has implemented a set of data security measures.For example, the NHANES dataset is stored in an access-controlled GitHub repository. Our processed data is stored in the /data/ directory, and all the raw data is stored in the /data/raw_tables directory. Access to the /data directory is restricted to only authorized group members. GitHub's repository permissions and collaborator settings are utilized to control access to the repository and specific directories, with read/write permissions granted only to who require access to the data for their specific tasks. These access permissions are regularly reviewed from our logs and updated to align with group members' tasks. Upon completion of the project, all NHANES dataset files and any derived data will be securely deleted from local computers and Github's repository. This ensures that the data is not retained unnecessarily and reduces the risk of unauthorized access or disclosure after the project's conclusion.
 
 # 3. Exploratory Data Analysis
 
@@ -197,15 +194,11 @@ knitr::include_graphics("../figures/combined_kidney_stones_graphs.png")
 
 Figure 6: Association between Kidney Stone History, Sedentary Behavior, and Physical Activity Patterns
 
-Figure 6a shows similar sitting time distributions between those with and without kidney stone history. Interestingly, it contrasts with the earlier findings by Li et al. (2024) from 2007-2016 data, which suggested an increasing trend in kidney stone prevalence with increased sitting time among less active individuals. 
-
-This difference could indicate a shift in the relationship between sedentary behavior and kidney stones over time, or reflect changes in lifestyle patterns in the past few years. 
+Figure 6a shows similar sitting time distributions between those with and without kidney stone history. Interestingly, it contrasts with the earlier findings by Li et al. (2024) from 2007-2016 data, which suggested an increasing trend in kidney stone prevalence with increased sitting time among less active individuals. This difference could indicate a shift in the relationship between sedentary behavior and kidney stones over time, or reflect changes in lifestyle patterns in the past few years. 
 
 In addition, we have also observed a small secondary peak at around 10,000 minutes (~167 hours) of sitting time and negative minutes spend sitting in both groups. This likely represents outliers or data entry errors.
 
-Sedentary behavior and physical activity patterns in relation to kidney stone history have been subjects of ongoing research, with findings evolving over time. 
-
-Examining physical activity patterns, we observe slight differences in recreational activities between those with and without kidney stone history. For moderate-intensity sports, fitness, or recreational activities (38.5% vs. 40.4%), vigorous-intensity activities (21.0% vs. 24.0%), and walking or cycling for at least 10 minutes continuously (19.6% vs. 22.9%), individuals without kidney stone history report marginally higher participation rates. While these differences are small, they align with findings from Sorensen et al. (2014), who reported that higher levels of physical activity were associated with lower risk of kidney stones.
+Sedentary behavior and physical activity patterns in relation to kidney stone history have been subjects of ongoing research, with findings evolving over time. Examining physical activity patterns, we observe slight differences in recreational activities between those with and without kidney stone history. For moderate-intensity sports, fitness, or recreational activities (38.5% vs. 40.4%), vigorous-intensity activities (21.0% vs. 24.0%), and walking or cycling for at least 10 minutes continuously (19.6% vs. 22.9%), individuals without kidney stone history report marginally higher participation rates. While these differences are small, they align with findings from Sorensen et al. (2014), who reported that higher levels of physical activity were associated with lower risk of kidney stones.
 
 Interestingly, for work-related physical activities, we see a reverse trend. Those with kidney stone history report slightly higher rates of work-related moderate-intensity activity (44.7% vs. 43.0%) and work-related vigorous-intensity activity (27.8% vs. 24.7%). This distinction between recreational and occupational physical activity in relation to kidney stone history is intriguing and warrants further investigation. It may suggest that the context and nature of physical activity, not just the intensity, could play a role in kidney stone risk.
 
