@@ -210,6 +210,17 @@ Examining physical activity patterns, we observe slight differences in recreatio
 Interestingly, for work-related physical activities, we see a reverse trend. Those with kidney stone history report slightly higher rates of work-related moderate-intensity activity (44.7% vs. 43.0%) and work-related vigorous-intensity activity (27.8% vs. 24.7%). This distinction between recreational and occupational physical activity in relation to kidney stone history is intriguing and warrants further investigation. It may suggest that the context and nature of physical activity, not just the intensity, could play a role in kidney stone risk.
 
 
+
+## 3.6 Risk_Factor_Analysis
+```{r}
+knitr::include_graphics("../figures/Risk_Factor_Analysis.png")
+```
+Figure 8: The risk of smoke to kidney stone In this graph you can see the proportion of people who have kidney stone or not for people with some certain characteristics(smoke more then 1000 time in their life,smoke less then 1000 time in their life, don’t know and refuse to answer). In this case, I will not account for people who answer I don’t know and refuse. Since number of them is low, and I am not sure if I should assume that they smoke too little, so they think it is not important, or they smoke a lot.So just look people who smoke more then 1000 time in their life(Yes) and smoke less then 1000 time in their life(No). You can see the proportion of kidney stone for people who answer yes is higher then who answer no. From this it show the correlation between risk of kidney stone and smoking and it back up the research that say their is causation between risk of kidney stone and smoking. 
+
+Figure 9: The risk of number of prescriptions taken to kidney stone In this graph you can see that I create a plot box to see in average the number of prescriptions taken by people who have kidney stone or not. It is show that the number of people who have kidney stone tend to have higher number of prescriptions taken 9 compare to people who don’t have kidney stone. From this it show the correlation between risk of kidney stone and number of prescriptions taken and it back up the research that say their is causation between risk of kidney stone and number of prescriptions taken. 
+
+Figure 10: The risk of trouble sleeping to kidney stone Note(told doctor about having trouble sleeping mean that they have issue about sleeping and didn’t told doctor about having trouble sleeping mean that they have don’t issue about sleeping) In this graph you can see the proportion of people who have kidney stone or not for people with some certain characteristics(having a sleeping issue, don’t have a sleeping issue, don’t know and refusing to answer). In this case, I will not account for people who answer I don’t know and refuse. Since number of them is low, and I am not sure if I should assume they they having trouble sleeping or not. So just look people who having trouble sleeping(Yes) and people who didn’t having trouble sleeping(No). You can see the proportion of kidney stone for people who answer yes is higher then who answer no. From this it show the correlation between risk of kidney stone and smoking and it back up the research that say their is causation between risk of kidney stone and having sleeping issue.
+
 # 4. Individual Contributions
 
 Katie: - I. Background and Data (Figure 1 2 3) - Data preprocessing
