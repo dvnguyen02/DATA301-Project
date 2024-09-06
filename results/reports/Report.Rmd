@@ -102,23 +102,24 @@ All instances with missing values, recorded "Refused", or "Don't know" for the t
 
 ## 2.1 Ethical Considerations
 
+David
 [Discuss ethical considerations relevant to your project, such as potential biases in the data or implications of findings]
 
 ## 2.2 Privacy Concerns
 
+Brook
 [Address privacy concerns related to your project, such as handling of personal health information]
 
 ## 2.3 Security Measures
 
+David
+
 [Explain actual and potential steps to keep your project data and results secure]
 
-# 3. Methodology
 
-[Describe the methods used for data cleaning, preprocessing, and analysis]
+# 3. Exploratory Data Analysis
 
-# 4. Exploratory Data Analysis
-
-## 4.1 Demographic Analysis
+## 3.1 Demographic Analysis
 
 ```{r}
 knitr::include_graphics("../figures/demo_ks_prev.png")
@@ -140,7 +141,7 @@ In Figure 2f, a ratio close to 1 means family income is approximately equal to p
 
 Overall, Figure 2 indicates that nearly all demographic features - age, gender, marital status, race, and ratio of family income to poverty guidelines - are associated with prevalence of kidney stones. Confirming previous research, older people and males are more likely to have had kidney stones. Age may be a confounding factor in the apparent association of kidney stone occurance with marital status, but regardless it can still be a useful feature. The lack of significant association between education level and kidney stones indicate that it might be uninformative in a predictive context.
 
-## 4.2 Health Conditions Analysis
+## 3.2 Health Conditions Analysis
 
 ```{r}
 knitr::include_graphics("../figures/cond_ks_prop.png")
@@ -150,7 +151,7 @@ Figure 3: The proportion of people with various other conditions who also have h
 
 Gallstones and weak/failing kidneys are the most strongly associated with kidney stone occurance, with close to 25% of people having (either or both of) those conditions also having had kidney stones. Between ~11% and ~15% of people who have the remaining conditions also have had kidney stones. All these are much higher than overall kidney stone prevalence (9.4%), indicating that these features are likely to be useful for a predictive model. It can be noted that some of these conditions may also possess a high degree of correlation between each other, which may be reflected in their similar proportions in Figure 3, e.g. being overweight and having high cholesterol. Feature combination/transformation could be used to reduce dimensionality.
 
-## 4.3 Laboratory Analysis
+## 3.3 Laboratory Analysis
 
 ```{r}
 knitr::include_graphics("../figures/lab_dist.png")
@@ -164,7 +165,7 @@ Distribution shape of laboratory features remains relatively identical, regardle
 
 Figure 4 indicates that uric acid and lead are not associated with kidney stone prevalence. The remaining laboratory features are associated due to differing distributions according to kidney stone status.
 
-## 4.4 Dietary Analysis
+## 3.4 Dietary Analysis
 
 ```{r}
 knitr::include_graphics("../figures/dietary_difference.png")
@@ -188,7 +189,7 @@ Lycopene intake is 10.1% higher in those with a history of kidney stones, which 
 
 Among the top factors, we see a trend in vitamins and antioxidants, particularly forms of vitamin A, vitamin C, and vitamin E (alpha-tocopherol). This pattern suggests that the balance and forms of certain vitamins may be different in individuals with a history of kidney stones.
 
-## 4.5 Physical Activity Analysis
+## 3.5 Physical Activity Analysis
 
 ```{r}
 knitr::include_graphics("../figures/combined_kidney_stones_graphs.png")
@@ -208,20 +209,15 @@ Examining physical activity patterns, we observe slight differences in recreatio
 
 Interestingly, for work-related physical activities, we see a reverse trend. Those with kidney stone history report slightly higher rates of work-related moderate-intensity activity (44.7% vs. 43.0%) and work-related vigorous-intensity activity (27.8% vs. 24.7%). This distinction between recreational and occupational physical activity in relation to kidney stone history is intriguing and warrants further investigation. It may suggest that the context and nature of physical activity, not just the intensity, could play a role in kidney stone risk.
 
-# 5. Discussion
 
-[Summarize key findings and their implications]
-[Discuss limitations of the study]
-[Suggest areas for future research]
+# 4. Individual Contributions
 
-# 6. Conclusion
+Katie: - I. Background and Data (Figure 1 2 3) - Data preprocessing
+Thinh - Figs 8, 9, 10 (EDA)
+Brook - Ethics, Privacy, Security, 4.3 corrleation between lab features - Ethics, Privacy - Proofread the report
+David - Dietary Analysis, Physical activity analysis - Security
 
-[Provide a concise summary of the main findings and their significance]
 
-# 7. Individual Contributions
-
-[State the contributions of each group member to data preparation, analysis, and report writing]
-
-# 8. References
+# 5. References
 
 [List references using a consistent citation style]
