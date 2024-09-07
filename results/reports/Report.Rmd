@@ -1,6 +1,6 @@
 ---
 title: "Predicting Occurance of Kidney Stones: Exploratory Data Analysis of Relevant Features in NHANES 2017 - 2020"
-author: "Group 2"
+author: "Brook Thomson, <student id>; Katie Chu-Fong, 300601174; Thinh Nguyen, <student id>; David Nguyen, 300584723"
 date: "`r Sys.Date()`"
 output: 
   pdf_document: 
@@ -12,22 +12,6 @@ output:
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(knitr)
 library(kableExtra)
-```
-
-## Group Members
-
-```{r group-members-table, echo=FALSE}
-group_members <- data.frame(
-  Name = c("Brook (lastname)", "Katie Chu-Fong", "Thinh (lastname)", "David Nguyen"),
-  `Student ID` = c("12345678", "300601174", "11223344", "300584723")
-)
-
-kable(group_members, format = "latex", booktabs = TRUE, caption = "Group Members and Student IDs") %>%
-  kable_styling(
-    latex_options = c("striped", "hold_position"),
-    full_width = FALSE,
-    position = "center"
-  )
 ```
 
 \newpage
@@ -64,20 +48,15 @@ The key features are broadly described in the following:
 * Demographic: gender, age, race, education, marital status, and income. Men and older individuals are more likely to have had kidney stones (Lieske et al., 2014), and there is evidence that kidney stone prevalence and severity is associated with various socioeconomic factors (Bayne et al., 2019; Trivedi et al., 2008; Winitzki et al., 2022). 
 * Dietary: vitamin, water, nutrient, and dietary supplement intake. Kidney stone incidence increases with certain dietary habits, such as low calcium, low potassium, and low fluid diets (Cappucio et al., 1990; Chewcharat et al., 2022). Everyday foods in the NHANES dietary interviews are deconstructed and aggregated into their nutritional components, thus there is highly specific (and largely correlated) dietary and nutrient data that constitutes a significant portion of the total features explored.
 * Examination: body mass index (BMI), blood pressure, and pulse readings. Indicators of general health are useful predictive features for kidney stone risk (Cappucio et al., 1990; Jeong et al., 2011).
-* Laboratory: aspects of biochemistry profile, and urine-associated tests. Kidney diseases or urinary tract abnormalities (that can lead to kidney stones) are have been associated with abnormal urinary levels of components such as glucose, lead, and albumin creatinine ratio (Spatola et al., 2016). Previous research using NHANES, by Chewcharat & Curhan (2020) and Sun et al. (2019), has assessed prevalence of kidney stones in comparison to relevant laboratory values.
+* Laboratory: aspects of biochemistry profile, and urine-associated tests. Kidney diseases or urinary tract abnormalities (that can lead to kidney stones) have been associated with abnormal urinary levels of components such as glucose, lead, and albumin creatinine ratio (Spatola et al., 2016). Previous research using NHANES, by Chewcharat & Curhan (2020) and Sun et al. (2019), has assessed prevalence of kidney stones in comparison to relevant laboratory values.
 * Questionnaire: past medical history (conditions and medicines), dietary and alcohol habits, urinary tract function, physical activity, smoking, and sleep habits. Again, general health, behaviours, and lifestyle have a large influence on kidney stone disease (Li et al., 2014; Xue et al., 2024). Factors such as lack of physical activity and smoking can indirectly damage the urinary tract and promote stone formation (Lieske, 2013; Soueidan et al., 2015).
 
 Feature type ranges from numerical continuous to categorical binary, nominal, and ordinal. Dietary, examination, and laboratory data are mainly numerical, while demographic and questionnaire data are mainly categorical. To avoid difficult or complicated natural languange processing or text mining, free-text data was not selected.
 
 Counts of feature types and brief examples are as follows:
 
-* 97 numerical features, e.g: 
-  * Energy in kilocalories (continuous)
-  * Age in years (discrete)
-* 49 categorical features e.g: 
-  * Gender (binary: male, female)
-  * Race (nominal: Mexican American, other Hispanic, white, etc.)
-  * Diet healthiness (ordinal: excellent, very good, fair, etc.)
+* 97 numerical features, e.g. energy in kilocalories (continuous); age in years (discrete)
+* 49 categorical features, e.g. gender (binary: male, female); race (nominal: Mexican American, other Hispanic, white, etc.); diet healthiness (ordinal: excellent, very good, fair, etc.)
 
 ## 1.3 Data Completeness
 
@@ -220,7 +199,7 @@ Interestingly, for work-related physical activities, we see a reverse trend. Tho
 
 
 
-## 3.6 Risk_Factor_Analysis
+## 3.6 Risk Factor Analysis
 ```{r}
 knitr::include_graphics("../figures/Risk_Factor_Analysis.png")
 ```
