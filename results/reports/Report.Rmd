@@ -18,14 +18,16 @@ library(kableExtra)
 
 ```{r group-members-table, echo=FALSE}
 group_members <- data.frame(
-  Name = c("Brook (lastname)", "Katie (lastname)", "Thinh (lastname)", "David Nguyen"),
-  `Student ID` = c("12345678", "87654321", "11223344", "300584723")
+  Name = c("Brook (lastname)", "Katie Chu-Fong", "Thinh (lastname)", "David Nguyen"),
+  `Student ID` = c("12345678", "300601174", "11223344", "300584723")
 )
 
 kable(group_members, format = "latex", booktabs = TRUE, caption = "Group Members and Student IDs") %>%
-  kable_styling(latex_options = c("striped", "hold_position"),
-                full_width = FALSE,
-                position = "center")
+  kable_styling(
+    latex_options = c("striped", "hold_position"),
+    full_width = FALSE,
+    position = "center"
+  )
 ```
 
 \newpage
@@ -34,11 +36,11 @@ kable(group_members, format = "latex", booktabs = TRUE, caption = "Group Members
 
 ## 1.1 Background
 
-Is kidney stone prevalence associated with factors such as diet, lifestyle, and other existing medical conditions? This project is based on the [National Health and Nutrition Examination Survey](https://www.cdc.gov/nchs/nhanes/index.htm) (NHANES) from the [National Center for Health Statistics](https://www.cdc.gov/nchs/index.htm), of the [Centers for Disease Control and Prevention](https://www.cdc.gov/). 
+Is kidney stone prevalence associated with factors such as diet, lifestyle, and other existing medical conditions? Kidney stones are solid deposits that develop in the urinary tract, and can cause blockage and severe pain when urine is passed (National Institutes of Health, n.d.). A previous study by Abufaraj et al. (2020) indicates it is a common condition that affects approximately 10% of people at least once in their lifetime, and in some cases may require significant and/or recurrent treatment. 
 
-NHANES is an ongoing program of surveys in the United States that assesses the health and nutritional status of adults and children. The surveys collect health-related data ranging over a number of topics, which are organised broadly into Demographics, Dietary, Examination, Laboratory, and Questionnaire.
+This report presents an exploratory data analysis, investigating variables previously shown to be associated with kidney stone occurance.  It is based on the [National Health and Nutrition Examination Survey](https://www.cdc.gov/nchs/nhanes/index.htm) (NHANES) from the [National Center for Health Statistics](https://www.cdc.gov/nchs/index.htm), of the [Centers for Disease Control and Prevention](https://www.cdc.gov/). NHANES is an ongoing program of surveys in the United States that assesses the health and nutritional status of adults and children. The surveys collect health-related data ranging over a number of topics, which are organised broadly into Demographics, Dietary, Examination, Laboratory, and Questionnaire. It is widely used to analyse or identify associative or causal factors of various conditions and/or diseases, such as diabetes, hypertension, and hearing loss. Thus, the comprehensive scope of topics in NHANES makes it an ideal resource to investigate factors associated with kidney stones, especially given the diverse range of known causes.
 
-This report presents an exploratory data analysis, investigating variables previously shown to be associated with kidney stone prevalence. We evaluate the distribution, quality, and completeness of relevant data in NHANES. The aim is to explore and identify potentially suitable features for developing a machine learning model to predict kidney stone prevalence using the NHANES dataset.
+In the following sections, we evaluate the completeness, quality, and distributions of kidney stone-relevant data in NHANES. The aim is to explore and identify potentially suitable features for developing a machine learning model to predict kidney stone prevalence using the NHANES dataset.
 
 Data from the most recent cycle is used, [NHANES 2017 - March 2020](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2017-2020).
 
@@ -50,20 +52,20 @@ df <- read.csv("../../data/merged_data_clean.csv")
 
 Data from each NHANES cycle is released as many tables, each containing a collection of similar features. For the specific focus on kidney stone disease, only a subset of tables is used, and from these tables, only a subset of key features. The integrated dataset used in this project is composed of `r nrow(df)` instances/rows, and `r ncol(df)` columns. The column `SEQN` contains a unique identifier for each instance, and the column `KIQ026` contains the target variable. Thus, there are `r ncol(df) - 2` informative features. 
 
-The target variable belongs to the Questionnaire component of NHANES, and is phrased as "Ever had kidney stones?". Possible answers of this question are "Yes", "No", "Refused", and "Don't know". Only Yes/No are used as the binary classification label of this project (details are discussed in 1.4: Data Integration).
+The target variable belongs to the Questionnaire component of NHANES, and is phrased as "Ever had kidney stones?". Possible answers of this question are "Yes", "No", "Refused", and "Don't know". Only Yes/No are used as the binary classification label of this project (details are discussed in Section 1.4: Data Integration).
 
-Counts and proportion of Yes/No of the target variable are as follows:
+Counts (and proportions) of the binary target variable classes are as follows:
 
-* Yes, has had kidney stones: 866 instances | `r signif((sum(df$KIQ026 == 1)/nrow(df)), 4)`
-* No, has not had kidney stones: 8342 instances | `r signif(sum(df$KIQ026 == 2)/nrow(df), 4)`
+* Yes, has had kidney stones: 866 instances (`r signif((sum(df$KIQ026 == 1)/nrow(df)), 4)`)
+* No, has not had kidney stones: 8342 instances (`r signif(sum(df$KIQ026 == 2)/nrow(df), 4)`)
 
 The key features are broadly described in the following:
 
-* Demographic: gender, age, race, education, marital status, and income. Men and older individuals are more likely to have had kidney stones, and there is evidence that kidney stone prevalence and severity is associated with various socioeconomic factors. 
-* Dietary: vitamin, water, nutrient, and dietary supplement intake. Kidney stone incidence increases with certain dietary habits, such as low calcium, low potassium, and low fluid diets. Everyday foods in the NHANES dietary interviews are deconstructed and aggregated into their nutritional components, thus there is highly specific (and largely correlated) dietary and nutrient data that constitutes a significant portion of the total features explored.
-* Examination: body mass index (BMI), blood pressure, and pulse readings. Indicators of general health are useful predictive features for kidney stone risk.
-* Laboratory: aspects of biochemistry profile, and urine-associated tests. Detection of kidney diseases or urinary tract abnormalities (that can lead to kidney stones) are often tested by assessing levels of components such as glucose, lead, and the albumin creatinine ratio in urine.
-* Questionnaire: past medical history (conditions and medicines), dietary and alcohol habits, urinary tract function, physical activity, smoking, and sleep habits. Again, general health, behaviours, and lifestyle have a large influence on kidney stone disease. Factors such as lack of physical activity and smoking can indirectly damage the urinary tract and promote stone formation.
+* Demographic: gender, age, race, education, marital status, and income. Men and older individuals are more likely to have had kidney stones (Lieske et al., 2014), and there is evidence that kidney stone prevalence and severity is associated with various socioeconomic factors (Bayne et al., 2019; Trivedi et al., 2008; Winitzki et al., 2022). 
+* Dietary: vitamin, water, nutrient, and dietary supplement intake. Kidney stone incidence increases with certain dietary habits, such as low calcium, low potassium, and low fluid diets (Cappucio et al., 1990; Chewcharat et al., 2022). Everyday foods in the NHANES dietary interviews are deconstructed and aggregated into their nutritional components, thus there is highly specific (and largely correlated) dietary and nutrient data that constitutes a significant portion of the total features explored.
+* Examination: body mass index (BMI), blood pressure, and pulse readings. Indicators of general health are useful predictive features for kidney stone risk (Cappucio et al., 1990; Jeong et al., 2011).
+* Laboratory: aspects of biochemistry profile, and urine-associated tests. Kidney diseases or urinary tract abnormalities (that can lead to kidney stones) are have been associated with abnormal urinary levels of components such as glucose, lead, and albumin creatinine ratio (Spatola et al., 2016). Previous research using NHANES, by Chewcharat & Curhan (2020) and Sun et al. (2019), has assessed prevalence of kidney stones in comparison to relevant laboratory values.
+* Questionnaire: past medical history (conditions and medicines), dietary and alcohol habits, urinary tract function, physical activity, smoking, and sleep habits. Again, general health, behaviours, and lifestyle have a large influence on kidney stone disease (Li et al., 2014; Xue et al., 2024). Factors such as lack of physical activity and smoking can indirectly damage the urinary tract and promote stone formation (Lieske, 2013; Soueidan et al., 2015).
 
 Feature type ranges from numerical continuous to categorical binary, nominal, and ordinal. Dietary, examination, and laboratory data are mainly numerical, while demographic and questionnaire data are mainly categorical. To avoid difficult or complicated natural languange processing or text mining, free-text data was not selected.
 
@@ -108,7 +110,7 @@ It is important to consider missing data when combining or transforming features
 
 ## 1.4 Data Integration
 
-Individual tables were obtained from the [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm) site and joined along the unique respondent sequence number variable, `SEQN`, regardless of unmatched `SEQN`s or missing values in features (full outer join). In instances with duplicate `SEQN` but mismatching remaining values, the first instance was taken (**state why here if have time to investigate**).
+Individual tables were obtained from the [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm) site and joined along the unique respondent sequence number variable, `SEQN`, regardless of unmatched `SEQN`s or missing values in features (full outer join). For any subsequent duplicate instances (determined by duplicate `SEQN`), the first instance was taken.
 
 All instances with missing values, recorded "Refused", or "Don't know" for the target variable were then removed from the data.
 
@@ -222,15 +224,21 @@ Interestingly, for work-related physical activities, we see a reverse trend. Tho
 ```{r}
 knitr::include_graphics("../figures/Risk_Factor_Analysis.png")
 ```
-Figure 8: The risk of smoke to kidney stone In this graph you can see the proportion of people who have kidney stone or not for people with some certain characteristics(smoke more then 1000 time in their life,smoke less then 1000 time in their life, don’t know and refuse to answer). In this case, I will not account for people who answer I don’t know and refuse. Since number of them is low, and I am not sure if I should assume that they smoke too little, so they think it is not important, or they smoke a lot.So just look people who smoke more then 1000 time in their life(Yes) and smoke less then 1000 time in their life(No). You can see the proportion of kidney stone for people who answer yes is higher then who answer no. From this it show the correlation between risk of kidney stone and smoking and it back up the research that say their is causation between risk of kidney stone and smoking. 
+Figure 8: The risk of smoke to kidney stone 
 
-Figure 9: The risk of number of prescriptions taken to kidney stone In this graph you can see that I create a plot box to see in average the number of prescriptions taken by people who have kidney stone or not. It is show that the number of people who have kidney stone tend to have higher number of prescriptions taken 9 compare to people who don’t have kidney stone. From this it show the correlation between risk of kidney stone and number of prescriptions taken and it back up the research that say their is causation between risk of kidney stone and number of prescriptions taken. 
+In this graph you can see the proportion of people who have kidney stone or not for people with some certain characteristics(smoke more then 1000 time in their life,smoke less then 1000 time in their life, don’t know and refuse to answer). In this case, I will not account for people who answer I don’t know and refuse. Since number of them is low, and I am not sure if I should assume that they smoke too little, so they think it is not important, or they smoke a lot.So just look people who smoke more then 1000 time in their life(Yes) and smoke less then 1000 time in their life(No). You can see the proportion of kidney stone for people who answer yes is higher then who answer no. From this it show the correlation between risk of kidney stone and smoking and it back up the research that say their is causation between risk of kidney stone and smoking. 
 
-Figure 10: The risk of trouble sleeping to kidney stone Note(told doctor about having trouble sleeping mean that they have issue about sleeping and didn’t told doctor about having trouble sleeping mean that they have don’t issue about sleeping) In this graph you can see the proportion of people who have kidney stone or not for people with some certain characteristics(having a sleeping issue, don’t have a sleeping issue, don’t know and refusing to answer). In this case, I will not account for people who answer I don’t know and refuse. Since number of them is low, and I am not sure if I should assume they they having trouble sleeping or not. So just look people who having trouble sleeping(Yes) and people who didn’t having trouble sleeping(No). You can see the proportion of kidney stone for people who answer yes is higher then who answer no. From this it show the correlation between risk of kidney stone and smoking and it back up the research that say their is causation between risk of kidney stone and having sleeping issue.
+Figure 9: The risk of number of prescriptions taken to kidney stone 
+
+In this graph you can see that I create a plot box to see in average the number of prescriptions taken by people who have kidney stone or not. It is show that the number of people who have kidney stone tend to have higher number of prescriptions taken 9 compare to people who don’t have kidney stone. From this it show the correlation between risk of kidney stone and number of prescriptions taken and it back up the research that say their is causation between risk of kidney stone and number of prescriptions taken. 
+
+Figure 10: The risk of trouble sleeping to kidney stone Note(told doctor about having trouble sleeping mean that they have issue about sleeping and didn’t told doctor about having trouble sleeping mean that they have don’t issue about sleeping) 
+
+In this graph you can see the proportion of people who have kidney stone or not for people with some certain characteristics(having a sleeping issue, don’t have a sleeping issue, don’t know and refusing to answer). In this case, I will not account for people who answer I don’t know and refuse. Since number of them is low, and I am not sure if I should assume they they having trouble sleeping or not. So just look people who having trouble sleeping(Yes) and people who didn’t having trouble sleeping(No). You can see the proportion of kidney stone for people who answer yes is higher then who answer no. From this it show the correlation between risk of kidney stone and smoking and it back up the research that say their is causation between risk of kidney stone and having sleeping issue.
 
 # 4. Individual Contributions
 
-Katie (Student ID) - Background research and data overview (Figures 1, 2, 3), Data preprocessing and cleaning, Initial data exploration and visualization on Demographics and Lab Analysis (EDA)
+Katie (300601174) - Background and Data, Data preprocessing and cleaning, Initial data exploration and visualization on Demographics and Lab Analysis (EDA)
 
 Thinh (Student ID) - Risks Factor Exploratory Data Analysis (EDA), Identification of trends and patterns in the data, analysis of key variables
 
