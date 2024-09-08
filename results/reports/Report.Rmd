@@ -229,7 +229,7 @@ The complex relationship between physical activity and kidney stone risk undersc
 
 ## 3.6 Risk Factor Analysis
 ```{r}
-knitr::include_graphics("../figures/Risk_Factor_Analysis.png")
+knitr::include_graphics("../figures/Risk_Factor_Analysis_small.png")
 ```
 Figure 8: a) Kidney stone prevalence and smoking at least 100 cigarettes in life b) Kidney stone prevalence and the number of prescriptions taken. c) Kidney stone prevalence and trouble sleeping. 
 
