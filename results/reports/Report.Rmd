@@ -117,15 +117,10 @@ As our data is from the NHANES dataset, which is part of a program by a governme
 
 The United States of America currently has 4 federal laws that cover patient privacy in regards to the NHANES survey data – these are: 
 
-The Privacy Act of 1974 - requires that data about an individual cannot be released without the individual’s consent (Office of Privacy and Civil Liberties | Privacy Act of 1974, 2014) 
-
-The Confidential Information Protection and Statistical Efficiency Act – states if information is gathered for statistical purposes, it should only be used for statistical purposes, that an individual should not identifiable, and that confidentiality should be safeguarded by controlling access to the information. (2.11 Confidential Information Protection and Statistical Efficiency Act (2002), n.d.) 
-
-The Cybersecurity Enhancement Act – requires agencies to have appropriate cybersecurity measures and plans in place (S.1353 - 113th Congress (2013-2014): Cybersecurity Enhancement Act of 2014, 2014) 
-
-Section 308(d) of the Public Health Service Act – similar to The Confidential Information Protection and Statistical Efficiency Act, it states that a person should not be identifiable, and that the data may only be used for the purpose it was supplied for. (TITLE III-GENERAL POWERS and DUTIES of PUBLIC HEALTH SERVICE PART A-RESEARCH and INVESTIGATION in GENERAL, 2020) 
-
-(NHANES - Participant - Your Privacy, 2021) (National Center for Health Statistics, 2013)  
+1. The Privacy Act of 1974 - requires that data about an individual cannot be released without the individual’s consent (U.S Department of Justice, 2014).
+1. The Confidential Information Protection and Statistical Efficiency Act – states if information is gathered for statistical purposes, it should only be used for statistical purposes, that an individual should not identifiable, and that confidentiality should be safeguarded by controlling access to the information (Federal Chief Information Officers, 2002).
+1. The Cybersecurity Enhancement Act – requires agencies to have appropriate cybersecurity measures and plans in place (Library of Congress, 2014).
+1. Section 308(d) of the Public Health Service Act – similar to The Confidential Information Protection and Statistical Efficiency Act, it states that a person should not be identifiable, and that the data may only be used for the purpose it was supplied for (National Center for Health Statistics, 2021; Office of the Legislative Council, 2020).
 
 NHANES is currently in compliance with the above acts, and by using the data for statistical purposes, we are in compliance with The Confidential Information Protection and Statistical Efficiency Act. However, the United States of America also has differing data privacy laws state-by-state (Pittman, 2023), and as the NHANES survey is national, participants will be from a variety of states and therefore have different privacy standards. These state level data privacy laws are typically surrounding consumer data and corporations, as opposed to governmental survey data, but are still important to consider. While geographic information is collected as part of NHANES, its use is limited and restricted, so we are unable to verify ourselves if NHANES is complying with the state laws, and the NHANES privacy page and brochure were both released prior to state privacy laws coming into effect. States are also continuing to roll out new privacy laws and not all are yet in effect, and so even if the data is currently legally sound in terms of privacy, this may change in the coming years. While we may not know NHANES and our own exact legality stance in the states currently, we do know that the information that NHANES releases to the public has no identifiable information, only those with special permissions can access some identifiers (such as geographic location), and these steps ensure patient confidentiality. 
 
@@ -198,17 +193,17 @@ knitr::include_graphics("../figures/dietary_difference.png")
 
 Figure 5: Dietary Differences
 
-Alcohol consumption shows the largest negative difference (-25.2%), indicating that individuals who have had kidney stones tend to consume significantly less alcohol. This the studies have shown that excessive alcohol intake can increase the risk of kidney stone formation by causing dehydration and altering urine composition (Ferraro et al., 2013, Clinical Journal of the American Society of Nephrology).
+Alcohol consumption shows the largest negative difference (-25.2%), indicating that individuals who have had kidney stones tend to consume significantly less alcohol. This the studies have shown that excessive alcohol intake can increase the risk of kidney stone formation by causing dehydration and altering urine composition (Ferraro et al., 2013).
 
-In addition, Alpha-carotene and beta-carotene (both forms of vitamin A) display substantial negative differences (-24.0% and -13.8% respectively), with those who have had kidney stones consuming less. This unexpected finding warrants further investigation, as some studies have suggested that higher intake of fruits and vegetables rich in carotenoids may be associated with lower risk of kidney stones (Sorensen et al., 2014, Journal of Urology).
+In addition, Alpha-carotene and beta-carotene (both forms of vitamin A) display substantial negative differences (-24.0% and -13.8% respectively), with those who have had kidney stones consuming less. This unexpected finding warrants further investigation, as some studies have suggested that higher intake of fruits and vegetables rich in carotenoids may be associated with lower risk of kidney stones (Sorensen et al., 2014).
 
-In contrast, another form of vitamin A, Retinol, shows a positive difference (+11.5%), contrasting with the carotenoid findings. This discrepancy highlights the complex relationship between different forms of vitamin A and kidney stone risk. Some research has indicated that excessive vitamin A intake may increase kidney stone risk (Tang et al., 2012, Annals of Internal Medicine), which could explain why those with a history of stones consume less carotenoids but more retinol.
+In contrast, another form of vitamin A, Retinol, shows a positive difference (+11.5%), contrasting with the carotenoid findings. This discrepancy highlights the complex relationship between different forms of vitamin A and kidney stone risk. Some research has indicated that excessive vitamin A intake may increase kidney stone risk (Tang et al., 2012), which could explain why those with a history of stones consume less carotenoids but more retinol.
 
-Caffeine and theobromine show the largest positive differences (+14.4% and +13.9%). While caffeine has been associated with increased risk of kidney stones in some studies (Ferraro et al., 2014, American Journal of Clinical Nutrition), the higher intake in those with a history of stones could reflect changes in fluid consumption patterns post-diagnosis.
+Caffeine and theobromine show the largest positive differences (+14.4% and +13.9%). While caffeine has been associated with increased risk of kidney stones in some studies (Ferraro et al., 2014), the higher intake in those with a history of stones could reflect changes in fluid consumption patterns post-diagnosis.
 
-Lycopene intake is 10.1% higher in those with a history of kidney stones. Some research suggests that lycopene may have protective effects against kidney stone formation due to its antioxidant properties (Yencilek et al., 2010, Urological Research), which makes this finding particularly interesting.
+Lycopene intake is 10.1% higher in those with a history of kidney stones. Some research suggests that lycopene may have protective effects against kidney stone formation due to its antioxidant properties (Yencilek et al., 2010), which makes this finding particularly interesting.
 
-Vitamin C intake is 8.4% lower in individuals who have had kidney stones. This aligns with some studies suggesting that high-dose vitamin C supplementation may increase kidney stone risk (Thomas et al., 2013, JAMA Internal Medicine), potentially leading to reduced intake in those with a history of stones.
+Vitamin C intake is 8.4% lower in individuals who have had kidney stones. This aligns with some studies suggesting that high-dose vitamin C supplementation may increase kidney stone risk (Thomas et al., 2013), potentially leading to reduced intake in those with a history of stones.
 
 Among the top factors, we see a trend in vitamins and antioxidants, particularly forms of vitamin A, vitamin C, and vitamin E (alpha-tocopherol). This pattern suggests that the balance and forms of certain vitamins may be different in individuals with a history of kidney stones.
 
@@ -224,13 +219,11 @@ Figure 6a shows quite similar sitting time distributions between those with and 
 
 There is small secondary peak at around 10,000 minutes (~167 hours) of sitting time and negative minutes spent sitting in both groups likely represents outliers or data entry errors.
 
-Examining physical activity patterns, we observe slight differences in recreational activities between those with and without kidney stone history. For moderate-intensity sports, fitness, or recreational activities (38.5% vs. 40.4%), vigorous-intensity activities (21.0% vs. 24.0%), and walking or cycling for at least 10 minutes continuously (19.6% vs. 22.9%), individuals without kidney stone history report marginally higher participation rates. While these differences are small, they align with findings from Sorensen et al. (2014, Journal of Urology), who reported that higher levels of physical activity were associated with lower risk of kidney stones. This association might be explained by the positive effects of exercise on metabolism, body composition, and hydration status (Qin et al., 2018, American Journal of Kidney Diseases).
+Examining physical activity patterns, we observe slight differences in recreational activities between those with and without kidney stone history. For moderate-intensity sports, fitness, or recreational activities (38.5% vs. 40.4%), vigorous-intensity activities (21.0% vs. 24.0%), and walking or cycling for at least 10 minutes continuously (19.6% vs. 22.9%), individuals without kidney stone history report marginally higher participation rates. While these differences are small, they align with findings from Sorensen et al. (2014), who reported that higher levels of physical activity were associated with lower risk of kidney stones. This association might be explained by the positive effects of exercise on metabolism, body composition, and hydration status (Qin et al., 2018).
 
-Interestingly, for work-related physical activities, we see a reverse trend. Those with kidney stone history report slightly higher rates of work-related moderate-intensity activity (44.7% vs. 43.0%) and work-related vigorous-intensity activity (27.8% vs. 24.7%). This distinction between recreational and occupational physical activity in relation to kidney stone history is intriguing and warrants further investigation. It may suggest that the context and nature of physical activity, not just the intensity, could play a role in kidney stone risk. Occupational physical activity might have different physiological effects compared to recreational exercise, possibly due to differences in hydration patterns, stress levels, or other workplace factors (Coenen et al., 2018, Occupational and Environmental Medicine).
+Interestingly, for work-related physical activities, we see a reverse trend. Those with kidney stone history report slightly higher rates of work-related moderate-intensity activity (44.7% vs. 43.0%) and work-related vigorous-intensity activity (27.8% vs. 24.7%). This distinction between recreational and occupational physical activity in relation to kidney stone history is intriguing and warrants further investigation. It may suggest that the context and nature of physical activity, not just the intensity, could play a role in kidney stone risk. Occupational physical activity might have different physiological effects compared to recreational exercise, possibly due to differences in hydration patterns, stress levels, or other workplace factors (Coenen et al., 2018).
 
 The complex relationship between physical activity and kidney stone risk underscores the need for more nuanced research in this area. Future studies should consider not only the quantity but also the quality and context of physical activity, as well as potential confounding risk factors.
-
-
 
 ## 3.6 Risk Factor Analysis
 ```{r}
@@ -250,14 +243,25 @@ In this graph you can see the proportion of people who have kidney stone or not 
 
 # 4. Individual Contributions
 
-Katie (300601174) - Background and Data, Data preprocessing and cleaning, Initial data exploration and visualization on Demographics and Lab Analysis (EDA)
+Brook (300653729):
+* Sections 2.1 to 2.2: Ethics and privacy
+* Section 3.3: Lab Analysis (Figure 4g and associated text)
+* Proofreading and editing the final report
 
-Thinh (Student ID) - Risks Factor Exploratory Data Analysis (EDA), Identification of trends and patterns in the data, analysis of key variables
+Katie (300601174):
+* Data preprocessing and cleaning
+* Section 1: Background and Data
+* Sections 3.1 to 3.3: Demographics and Lab Analysis (Figures 1 - 4f and associated text)
 
-Brook (Student ID) - Ethics and privacy considerations, Analysis of correlation between lab features, Proofreading and editing the final report
+Thinh (Student ID):
+* Section 3.6: Risk Factor Analysis (Figures 8 - 10 and associated text)
 
-David (300584723) - Dietary Analysis EDA: examination of nutritional data, Physical activity analysis EDA: Assessment of exercise patterns and their impact, security considerations for data handling and storage
+David (300584723):
+* Section 2.3: Security Measures (data handling and storage)
+* Section 3.4: Dietary Analysis(Figure 5 and associated text)
+* Section 3.5: Physical Activity Analysis (Figure 6 and associated text) 
 
+\newpage
 
 # 5. References
 
@@ -289,9 +293,9 @@ Jeong, I. G., Kang, T., Bang, J. K., Park, J., Kim, W., Hwang, S. S., Kim, H. K.
 
 Li, C. - H., Sung, F. - C., Wang, Y. - C., Lin, D., & Kao, C. - H. (2014). Gallstones increase the risk of developing renal stones: a nationwide population-based retrospective cohort study. QJM: An International Journal of Medicine, 107(6), 451–457. https://doi.org/10.1093/qjmed/hcu017
 
-Library of Congress. (2014, December 18). S.1353 - 113th Congress (2013-2014): Cybersecurity Enhancement Act of 2014. Library of Congress. https://www.congress.gov/bill/113th-congress/senate-bill/135
+Library of Congress. (2014, December 18). S.1353 - 113th Congress (2013-2014): Cybersecurity Enhancement Act of 2014. Library of Congress. https://www.congress.gov/bill/113th-congress/senate-bill/1353
 
-3Lieske, J. C. (2013). New Insights Regarding the Interrelationship of Obesity, Diet, Physical Activity, and Kidney Stones. Journal of the American Society of Nephrology, 25(2), 211–212. https://doi.org/10.1681/asn.2013111189
+Lieske, J. C. (2013). New Insights Regarding the Interrelationship of Obesity, Diet, Physical Activity, and Kidney Stones. Journal of the American Society of Nephrology, 25(2), 211–212. https://doi.org/10.1681/asn.2013111189
 
 Lieske, J. C., Rule, A. D., Krambeck, A. E., Williams, J. C., Bergstralh, E. J., Mehta, R. A., & Moyer, T. P. (2014). Stone composition as a function of age and sex. Clinical Journal of the American Society of Nephrology: CJASN, 9(12), 2141–2146. https://doi.org/10.2215/CJN.05660614
 
