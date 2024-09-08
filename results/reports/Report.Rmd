@@ -102,8 +102,23 @@ Brook
 
 ## 2.2 Privacy Concerns
 
-Brook
-[Address privacy concerns related to your project, such as handling of personal health information]
+Personal health data is extremely sensitive information, making privacy a huge concern. This is a widely recognised concern however, which means there is a great deal of legislation we and NHANES need to be in line with. 
+
+As our data is from the NHANES dataset, which is part of a program by a governmental agency of the United Stated of America, and the data is about those who reside in the United States, we must consider the laws, protections, and regulations the USA has, as well as the laws of our own country and the laws of social acceptance. While we may not be the ones who collected the data or released it, we are not relinquished of our moral duties. Using data that doesn’t meet privacy standards could lead to legal trouble and societal backlash, so ensuring our data already meets privacy standards - and if not, taking steps to ensure it does - is key.  
+
+The United States of America currently has 4 federal laws that cover patient privacy in regards to the NHANES survey data – these are: 
+
+The Privacy Act of 1974 - requires that data about an individual cannot be released without the individual’s consent (Office of Privacy and Civil Liberties | Privacy Act of 1974, 2014) 
+
+The Confidential Information Protection and Statistical Efficiency Act – states if information is gathered for statistical purposes, it should only be used for statistical purposes, that an individual should not identifiable, and that confidentiality should be safeguarded by controlling access to the information. (2.11 Confidential Information Protection and Statistical Efficiency Act (2002), n.d.) 
+
+The Cybersecurity Enhancement Act – requires agencies to have appropriate cybersecurity measures and plans in place (S.1353 - 113th Congress (2013-2014): Cybersecurity Enhancement Act of 2014, 2014) 
+
+Section 308(d) of the Public Health Service Act – similar to The Confidential Information Protection and Statistical Efficiency Act, it states that a person should not be identifiable, and that the data may only be used for the purpose it was supplied for. (TITLE III-GENERAL POWERS and DUTIES of PUBLIC HEALTH SERVICE PART A-RESEARCH and INVESTIGATION in GENERAL, 2020) 
+
+(NHANES - Participant - Your Privacy, 2021) (National Center for Health Statistics, 2013)  
+
+NHANES is currently in compliance with the above acts, and by using the data for statistical purposes, we are in compliance with The Confidential Information Protection and Statistical Efficiency Act. However, the United States of America also has differing data privacy laws state-by-state (Pittman, 2023), and as the NHANES survey is national, participants will be from a variety of states and therefore have different privacy standards. These state level data privacy laws are typically surrounding consumer data and corporations, as opposed to governmental survey data, but are still important to consider. While geographic information is collected as part of NHANES, its use is limited and restricted, so we are unable to verify ourselves if NHANES is complying with the state laws, and the NHANES privacy page and brochure were both released prior to state privacy laws coming into effect. States are also continuing to roll out new privacy laws and not all are yet in effect, and so even if the data is currently legally sound in terms of privacy, this may change in the coming years. While we may not know NHANES and our own exact legality stance in the states currently, we do know that the information that NHANES releases to the public has no identifiable information, only those with special permissions can access some identifiers (such as geographic location), and these steps ensure patient confidentiality. 
 
 ## 2.3 Security Measures
 
