@@ -168,15 +168,18 @@ Gallstones and weak/failing kidneys are the most strongly associated with kidney
 
 ```{r}
 knitr::include_graphics("../figures/lab_dist.png")
+knitr::include_graphics("../figures/corrlab.png")
 ```
 
-Figure 4: Density distributions of laboratory features, split by those who have had kidney stones and have not had kidney stones. a) Fasting glucose. b) Blood urea nitrogen. c) Total calcium. d) Uric acid. e) Albumin creatinine ratio. f) Lead in urine.
+Figure 4: Density distributions of laboratory features, split by those who have had kidney stones and have not had kidney stones. a) Fasting glucose. b) Blood urea nitrogen. c) Total calcium. d) Uric acid. e) Albumin creatinine ratio. f) Lead in urine. g) Shows the Pearson Correlation values between the laboratory results, not discriminant of kidney stone status.
 
 Figure 4 shows that most laboratory features appear within expected ranges, with the exception of uric acid (Figure 4d). There appears to be outlier(s) skewing this feature with up to 10000 mg/dL uric acid, which is likely to be an error as ordinary uric acid levels should not exceed the single-digit mg/dL range. 
 
 Distribution shape of laboratory features remains relatively identical, regardless of kidney stone status. Distributions for fasting glucose (Figure 4a) and total calcium (Figure 4c) are shifted slightly right (towards higher values) for those who have had kidney stones. The peak bin for blood urea nitrogen (Figure 4b) is at a marginally lower value for those who have had kidney stones in comparison to those who have not. Albumin creatinine ratio appears to peak later, and remain slightly higher, at increasing mg/g for those who have had kidney stones (Figure 4e). Distributions for lead (Figure 4f) and uric acid are consistent for both kidney stone statuses - however, detail in the uric acid histogram may be obscured by the outlier(s). 
 
 Figure 4 indicates that uric acid and lead are not associated with kidney stone prevalence. The remaining laboratory features are associated due to differing distributions according to kidney stone status.
+lation values, indicating that the lab
+When looking at the correlation between the laboratory features (figure 4g) we can see many close to 0 Pearson correoratory features are not strongly correlated. Because of this, it would be unreasonable to exclude any of these features based off of these values alone. The largest Pearson values here are seen with fasting glucose, but even this does not exceed 0.31, and a value of at least 0.7, or close to, would be needed to state a strong relationship. A compounding of other factors (correlation with other predictors, relationship to our kidney stones response variable, number of total features) would be needed to justify removing any of these predictors based off of their Pearson correlation values.
 
 ## 3.4 Dietary Analysis
 
