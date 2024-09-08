@@ -244,19 +244,23 @@ In this graph you can see the proportion of people who have kidney stone or not 
 # 4. Individual Contributions
 
 Brook (300653729):
+
 * Sections 2.1 to 2.2: Ethics and privacy
 * Section 3.3: Lab Analysis (Figure 4g and associated text)
 * Proofreading and editing the final report
 
 Katie (300601174):
+
 * Data preprocessing and cleaning
 * Section 1: Background and Data
 * Sections 3.1 to 3.3: Demographics and Lab Analysis (Figures 1 - 4f and associated text)
 
 Thinh (Student ID):
+
 * Section 3.6: Risk Factor Analysis (Figures 8 - 10 and associated text)
 
 David (300584723):
+
 * Section 2.3: Security Measures (data handling and storage)
 * Section 3.4: Dietary Analysis(Figure 5 and associated text)
 * Section 3.5: Physical Activity Analysis (Figure 6 and associated text) 
