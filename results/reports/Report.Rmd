@@ -1,6 +1,6 @@
 ---
 title: "Predicting Occurance of Kidney Stones: Exploratory Data Analysis of Relevant Features in NHANES 2017 - 2020"
-author: "Brook Thomson, <student id>; Katie Chu-Fong, 300601174; Thinh Nguyen, <student id>; David Nguyen, 300584723"
+author: "Brook Thomson, 300653729; Katie Chu-Fong, 300601174; Thinh Nguyen, <student id>; David Nguyen, 300584723"
 date: "`r Sys.Date()`"
 output: 
   pdf_document: 
