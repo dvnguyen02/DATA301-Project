@@ -107,7 +107,13 @@ Brook
 
 ## 2.3 Security Measures
 
-To ensure the security of the NHANES dataset and compliance with the National Center for Health Statistics (NCHS) requirements, our project has implemented a set of data security measures.For example, the NHANES dataset is stored in an access-controlled GitHub repository. Our processed data is stored in the /data/ directory, and all the raw data is stored in the /data/raw_tables directory. Access to the /data directory is restricted to only authorized group members. GitHub's repository permissions and collaborator settings are utilized to control access to the repository and specific directories, with read/write permissions granted only to who require access to the data for their specific tasks. These access permissions are regularly reviewed from our logs and updated to align with group members' tasks. Upon completion of the project, all NHANES dataset files and any derived data will be securely deleted from local computers and Github's repository. This ensures that the data is not retained unnecessarily and reduces the risk of unauthorized access or disclosure after the project's conclusion.
+To ensure the security of the NHANES dataset and compliance with the National Center for Health Statistics (NCHS) requirements, our project has implemented a set of data security measures. For example, the NHANES dataset is stored in an access-controlled GitHub repository. Our processed data is stored in the /data/ directory, and all the raw data is stored in the /data/raw_data directory. Access to these directories are restricted to only authorized group members. We utilize Github's repository permissions and collaborator settings to control access to the repository and specific directories, with read/write permissions granted only to those who require access to the data for their specific tasks.
+
+All data transfers are conducted using secure, encrypted protocols, such as HTTPS for GitHub interactions. We also maintain detailed audit trails, so group member could pull request and review it together, leveraging GitHub's built-in version control and logging capabilities to track all data access and modifications.
+
+Access permissions are regularly reviewed using our logs and updated to align with group members' current tasks and responsibilities. This ensures that access rights remain current and appropriate throughout the project lifecycle. We have also implemented a data minimization strategy, ensuring that only essential NHANES data relevant to the project is stored and processed.
+
+Upon completion of the project, all data files and any derived data will be deleted from local computers and GitHub's repository. This ensures that the data is not retained unnecessarily and reduces the risk of unauthorized access or disclosure after the project's conclusion.
 
 # 3. Exploratory Data Analysis
 
