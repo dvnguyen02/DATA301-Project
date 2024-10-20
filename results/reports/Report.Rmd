@@ -1,8 +1,9 @@
 ---
 title: "Predicting Occurance of Kidney Stones: Exploratory Data Analysis of Relevant Features in NHANES 2017 - 2020"
 author: |
-  | Brook Thomson, 300653729; David Nguyen, 300584723;
-  | Katie Chu-Fong, 300601174; Thinh Nguyen, 300611544
+  | Brook Thomson, 300653729; 
+  | Phase 1 Group Members:
+  | David Nguyen, 300584723; Katie Chu-Fong, 300601174; Thinh Nguyen, 300611544
 date: "`r Sys.Date()`"
 output: 
   pdf_document: 
@@ -18,9 +19,9 @@ library(kableExtra)
 
 \newpage
 
-# 1. Background and Data
+# 1. Executive Summary
 
-## 1.1 Background
+# 2. Background
 
 Is kidney stone prevalence associated with factors such as diet, lifestyle, and other existing medical conditions? Kidney stones are solid deposits of minerals and salts that develop in the urinary tract, and can cause blockage and severe pain when urine is passed (National Institutes of Health, n.d.). It is a common condition that affects approximately 10% of people at least once in their lifetime, and in some cases may require significant and/or recurrent treatment (Abufaraj et al., 2020). 
 
@@ -30,7 +31,9 @@ In the following sections, we evaluate the completeness, quality, and distributi
 
 Data from the most recent cycle is used, [NHANES 2017 - March 2020](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?Cycle=2017-2020).
 
-## 1.2 Data Structure and Types
+# 3. Data Description
+
+## 3.1 Data Structure and Types
 
 ```{r}
 df <- read.csv("../../data/merged_data_clean.csv")
@@ -60,7 +63,7 @@ Counts of feature types and brief examples are as follows:
 * 97 numerical features, e.g. energy in kilocalories (continuous); age in years (discrete)
 * 49 categorical features, e.g. gender (binary: male, female); race (nominal: Mexican American, other Hispanic, white, etc.); diet healthiness (ordinal: excellent, very good, fair, etc.)
 
-## 1.3 Data Completeness
+## 3.2 Data Completeness
 
 ```{r}
 na_df <- read.csv("../figures/na_prop.csv")
@@ -89,15 +92,15 @@ Over half of features have less than 20% missing data (Figure 1a). Features from
 
 It is important to consider missing data when combining or transforming features. Creating another feature that is an average of all three pulse readings (`BPXOPLS1, BPXOPLS2, BPXOPLS3`) will not result in loss of instances, as the features have equivalent proportions of missing data (assumed to belong to the same instances). However, creating a feature that is the average of urine flow rates (`URDFLOW1, URDFLOW2, URDFLOW3`) will result in loss of instances, as all have different proportions of missing data; `URDFLOW3` has nearly 100% missing data, `URDFLOW2` has close to 90%, and `URDFLOW1` has approximately 20%. It is wiser to simply preserve the feature with the least missing data (`URDFLOW1`), instead of attempting feature combination.
 
-## 1.4 Data Integration
+## 3.3 Data Integration
 
 Individual tables were obtained from the [NHANES](https://www.cdc.gov/nchs/nhanes/index.htm) site and joined along the unique respondent sequence number variable, `SEQN`, regardless of unmatched `SEQN`s or missing values in features (full outer join). For any subsequent duplicate instances (determined by duplicate `SEQN`), the first instance was taken.
 
 All instances with missing values, recorded "Refused", or "Don't know" for the target variable were then removed from the data.
 
-# 2. Ethics, Privacy, and Security
+# 4. Ethics, Privacy, and Security
 
-## 2.1 Ethical Considerations
+## 4.1 Ethical Considerations
 
 “...ethical issues can be (a) epistemic, related to misguided, inconclusive or inscrutable evidence; (b) normative, related to unfair outcomes and transformative effectives; or (c) related to traceability” (Morley et al., 2020) 
 
@@ -111,7 +114,7 @@ These are the broad scopes of the ethical issues that are present when using mac
 
 These ideas are heavily intertwined, for example, bias in a dataset (epistemic) may result in a discriminatory outcome (normative). While we always want our algorithms to have accurate, unbiased outcomes, the stakes become high with healthcare, as an incorrect result could be fatal to the patient. In the context of kidney stone prediction, it is less a diagnostic tool for current kidney stones, but whether they may develop them in future, so preventative measures could be taken to decrease a person’s risk, such as a change in diet, medication or regularity of checkups. While there are not life stakes, there is also the stake of the cost to the patient, and their ability to give informed consent about the medical treatments they recieve – which is difficult to provide if you do not know why you have been deemed at risk. Steps should be taken to make sure the algorithm is traceable, and attempts should be made to reduce any bias prevalent in the dataset. 
 
-## 2.2 Privacy Concerns
+## 4.2 Privacy Concerns
 
 Personal health data is extremely sensitive information, making privacy a huge concern. This is a widely recognised concern however, which means there is a great deal of legislation we and NHANES need to be in line with. 
 
@@ -126,7 +129,7 @@ The United States of America currently has 4 federal laws that cover patient pri
 
 NHANES is currently in compliance with the above acts, and by using the data for statistical purposes, we are in compliance with The Confidential Information Protection and Statistical Efficiency Act. However, the United States of America also has differing data privacy laws state-by-state (Pittman, 2023), and as the NHANES survey is national, participants will be from a variety of states and therefore have different privacy standards. These state level data privacy laws are typically surrounding consumer data and corporations, as opposed to governmental survey data, but are still important to consider. While geographic information is collected as part of NHANES, its use is limited and restricted, so we are unable to verify ourselves if NHANES is complying with the state laws, and the NHANES privacy page and brochure were both released prior to state privacy laws coming into effect. States are also continuing to roll out new privacy laws and not all are yet in effect, and so even if the data is currently legally sound in terms of privacy, this may change in the coming years. While we may not know NHANES and our own exact legality stance in the states currently, we do know that the information that NHANES releases to the public has no identifiable information, only those with special permissions can access some identifiers (such as geographic location), and these steps ensure patient confidentiality. 
 
-## 2.3 Security Measures
+## 4.3 Security Measures
 
 To ensure the security of the NHANES dataset and compliance with the National Center for Health Statistics (NCHS) requirements, our project has implemented a set of data security measures. The NHANES dataset is stored in an access-controlled repository, with raw and processed data kept in separate, restricted directories. Access to these directories is limited to authorized group members only, utilizing robust permission settings to control access based on specific tasks and responsibilities.
 
@@ -137,9 +140,9 @@ We have implemented a data minimization strategy, ensuring that only essential N
 Upon completion of the project, all data files and any derived data will be securely deleted from all storage locations using methods that prevent recovery. This ensures that the data is not retained unnecessarily and reduces the risk of unauthorized access or disclosure after the project's conclusion.
 All these practices are in full compliance with NCHS requirements for handling NHANES data.
 
-# 3. Exploratory Data Analysis
+# 5. Exploratory Data Analysis
 
-## 3.1 Demographic Analysis
+## 5.1 Demographic Analysis
 
 ```{r}
 knitr::include_graphics("../figures/demo_ks_prev.png")
@@ -161,7 +164,7 @@ In Figure 2f, a ratio close to 1 means family income is approximately equal to p
 
 Overall, Figure 2 indicates that nearly all demographic features - age, gender, marital status, race, and ratio of family income to poverty guidelines - are associated with prevalence of kidney stones. Confirming previous research, older people and males are more likely to have had kidney stones. Age may be a confounding factor in the apparent association of kidney stone occurance with marital status, but regardless it can still be a useful feature. The lack of significant association between education level and kidney stones indicate that it might be uninformative in a predictive context.
 
-## 3.2 Health Conditions Analysis
+## 5.2 Health Conditions Analysis
 
 ```{r}
 knitr::include_graphics("../figures/cond_ks_prop.png")
@@ -171,7 +174,7 @@ Figure 3: The proportion of people with various other conditions who also have h
 
 Gallstones and weak/failing kidneys are the most strongly associated with kidney stone occurance, with close to 25% of people having (either or both of) those conditions also having had kidney stones. Between ~11% and ~15% of people who have the remaining conditions also have had kidney stones. All these are much higher than overall kidney stone prevalence (9.4%), indicating that these features are likely to be useful for a predictive model. It can be noted that some of these conditions may also possess a high degree of correlation between each other, which may be reflected in their similar proportions in Figure 3, e.g. being overweight and having high cholesterol. Feature combination/transformation could be used to reduce dimensionality.
 
-## 3.3 Laboratory Analysis
+## 5.3 Laboratory Analysis
 
 ```{r}
 knitr::include_graphics("../figures/lab_dist.png")
@@ -188,7 +191,7 @@ Therefore this indicates that uric acid and lead are not associated with kidney 
 
 When looking at the correlation between the laboratory features (Figure 4g) we can see many close to 0 Pearson correoratory features are not strongly correlated. Because of this, it would be unreasonable to exclude any of these features based off of these values alone. The largest Pearson values here are seen with fasting glucose, but even this does not exceed 0.31, and a value of at least 0.7, or close to, would be needed to state a strong relationship. A compounding of other factors (correlation with other predictors, relationship to our kidney stones response variable, number of total features) would be needed to justify removing any of these predictors based off of their Pearson correlation values.
 
-## 3.4 Dietary Analysis
+## 5.4 Dietary Analysis
 
 ```{r}
 knitr::include_graphics("../figures/dietary_difference.png")
@@ -210,7 +213,7 @@ Vitamin C intake is 8.4% lower in individuals who have had kidney stones. This a
 
 Among the top factors, we see a trend in vitamins and antioxidants, particularly forms of vitamin A, vitamin C, and vitamin E (alpha-tocopherol). This pattern suggests that the balance and forms of certain vitamins may be different in individuals with a history of kidney stones.
 
-## 3.5 Physical Activity Analysis
+## 5.5 Physical Activity Analysis
 
 ```{r}
 knitr::include_graphics("../figures/combined_kidney_stones_graphs.png")
@@ -230,7 +233,7 @@ It may suggest that the context and nature of physical activity, not just the in
 
 The complex relationship between physical activity and kidney stone risk underscores the need for more nuanced research in this area. Future studies should consider not only the quantity but also the quality and context of physical activity, as well as potential confounding risk factors.
 
-## 3.6 Risk Factor Analysis
+## 5.6 Risk Factor Analysis
 ```{r}
 knitr::include_graphics("../figures/Risk_Factor_Analysis_small.png")
 ```
@@ -242,33 +245,11 @@ Figure 8b shows the average the number of prescriptions taken by those who have 
 
 In Figure 8c, the proportion of people who have kidney stones and those who do not are shown against people who have a sleeping issue and do not have a sleeping issue. The proportion of kidney stones for people who answer yes (have sleeping issue) is higher than those who answer no (no sleeping issue). From this, it backs up research linking risk of kidney stones to sleeping issues (University of Florida Health, 2019). 
 
-# 4. Individual Contributions
 
-Brook:
-
-* Sections 2.1 to 2.2: Ethical Considerations and Privacy Concerns
-* Section 3.3: Lab Analysis (Figure 4g and associated text)
-
-David:
-
-* Section 2.3: Security Measures (data handling and storage)
-* Section 3.4: Dietary Analysis (Figure 5 and associated text)
-* Section 3.5: Physical Activity Analysis (Figure 6 and associated text)
-
-Katie:
-
-* Data preprocessing and cleaning
-* Section 1: Background and Data
-* Sections 3.1 to 3.3: Demographics Analysis, Health Conditions Analysis, Lab Analysis (Figures 1 - 4f and associated text)
-* Proofreading and editing the final report
-
-Thinh:
-
-* Section 3.6: Risk Factor Analysis (Figure 8 and associated text) 
 
 \newpage
 
-# 5. References
+# 6. References
 
 &nbsp;&nbsp;&nbsp;&nbsp;Abufaraj, M., Xu, T., Cao, C., Waldhoer, T., Seitz, C., D’andrea, D., Siyam, A., Tarawneh, R., Fajkovic, H., Schernhammer, E., Yang, L., & Shariat, S. F. (2020). Prevalence and Trends in Kidney Stone Among Adults in the USA: Analyses of National Health and Nutrition Examination Survey 2007–2018 Data. European Urology Focus, 7(6). https://doi.org/10.1016/j.euf.2020.08.011
 
